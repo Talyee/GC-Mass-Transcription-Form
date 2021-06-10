@@ -40,11 +40,14 @@ namespace GC_Transcription_Form
             this.ProcessingPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.InitialPanel = new System.Windows.Forms.Panel();
+            this.LocalFolderBrowserButton = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.InitialPanelRadioButtonLocal = new System.Windows.Forms.RadioButton();
             this.InitialPanelLabel2 = new System.Windows.Forms.Label();
             this.InitialPanelRadioButtonGCB = new System.Windows.Forms.RadioButton();
             this.GCCFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.GCCFolderBrowser = new System.Windows.Forms.Button();
+            this.GCCFolderBrowserButton = new System.Windows.Forms.Button();
             this.InitialPanelLabel1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -198,21 +201,47 @@ namespace GC_Transcription_Form
             // 
             // InitialPanel
             // 
+            this.InitialPanel.Controls.Add(this.LocalFolderBrowserButton);
+            this.InitialPanel.Controls.Add(this.textBox3);
+            this.InitialPanel.Controls.Add(this.textBox2);
             this.InitialPanel.Controls.Add(this.InitialPanelRadioButtonLocal);
             this.InitialPanel.Controls.Add(this.InitialPanelLabel2);
             this.InitialPanel.Controls.Add(this.InitialPanelRadioButtonGCB);
             this.InitialPanel.Controls.Add(this.GCCFilePathTextBox);
-            this.InitialPanel.Controls.Add(this.GCCFolderBrowser);
+            this.InitialPanel.Controls.Add(this.GCCFolderBrowserButton);
             this.InitialPanel.Controls.Add(this.InitialPanelLabel1);
             this.InitialPanel.Location = new System.Drawing.Point(0, 0);
             this.InitialPanel.Name = "InitialPanel";
             this.InitialPanel.Size = new System.Drawing.Size(663, 344);
             this.InitialPanel.TabIndex = 5;
             // 
+            // LocalFolderBrowserButton
+            // 
+            this.LocalFolderBrowserButton.Location = new System.Drawing.Point(543, 235);
+            this.LocalFolderBrowserButton.Name = "LocalFolderBrowserButton";
+            this.LocalFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.LocalFolderBrowserButton.TabIndex = 10;
+            this.LocalFolderBrowserButton.Text = "Browse...";
+            this.LocalFolderBrowserButton.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(196, 235);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(341, 23);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(196, 270);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(422, 23);
+            this.textBox2.TabIndex = 7;
+            // 
             // InitialPanelRadioButtonLocal
             // 
             this.InitialPanelRadioButtonLocal.AutoSize = true;
-            this.InitialPanelRadioButtonLocal.Location = new System.Drawing.Point(53, 289);
+            this.InitialPanelRadioButtonLocal.Location = new System.Drawing.Point(53, 237);
             this.InitialPanelRadioButtonLocal.Name = "InitialPanelRadioButtonLocal";
             this.InitialPanelRadioButtonLocal.Size = new System.Drawing.Size(122, 19);
             this.InitialPanelRadioButtonLocal.TabIndex = 6;
@@ -233,7 +262,7 @@ namespace GC_Transcription_Form
             // InitialPanelRadioButtonGCB
             // 
             this.InitialPanelRadioButtonGCB.AutoSize = true;
-            this.InitialPanelRadioButtonGCB.Location = new System.Drawing.Point(53, 239);
+            this.InitialPanelRadioButtonGCB.Location = new System.Drawing.Point(53, 271);
             this.InitialPanelRadioButtonGCB.Name = "InitialPanelRadioButtonGCB";
             this.InitialPanelRadioButtonGCB.Size = new System.Drawing.Size(137, 19);
             this.InitialPanelRadioButtonGCB.TabIndex = 4;
@@ -248,15 +277,15 @@ namespace GC_Transcription_Form
             this.GCCFilePathTextBox.Size = new System.Drawing.Size(484, 23);
             this.GCCFilePathTextBox.TabIndex = 3;
             // 
-            // GCCFolderBrowser
+            // GCCFolderBrowserButton
             // 
-            this.GCCFolderBrowser.Location = new System.Drawing.Point(543, 114);
-            this.GCCFolderBrowser.Name = "GCCFolderBrowser";
-            this.GCCFolderBrowser.Size = new System.Drawing.Size(75, 23);
-            this.GCCFolderBrowser.TabIndex = 2;
-            this.GCCFolderBrowser.Text = "Browse...";
-            this.GCCFolderBrowser.UseVisualStyleBackColor = true;
-            this.GCCFolderBrowser.Click += new System.EventHandler(this.GCCFolderBrowser_Click);
+            this.GCCFolderBrowserButton.Location = new System.Drawing.Point(543, 114);
+            this.GCCFolderBrowserButton.Name = "GCCFolderBrowserButton";
+            this.GCCFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.GCCFolderBrowserButton.TabIndex = 2;
+            this.GCCFolderBrowserButton.Text = "Browse...";
+            this.GCCFolderBrowserButton.UseVisualStyleBackColor = true;
+            this.GCCFolderBrowserButton.Click += new System.EventHandler(this.GCCFolderBrowser_Click);
             // 
             // InitialPanelLabel1
             // 
@@ -509,7 +538,6 @@ namespace GC_Transcription_Form
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GC Mass Transcriptor";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.InputBox.ResumeLayout(false);
             this.InputBox.PerformLayout();
             this.ProcessingPanel.ResumeLayout(false);
@@ -541,7 +569,7 @@ namespace GC_Transcription_Form
         private System.Windows.Forms.Panel InitialPanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label InitialPanelLabel1;
-        private System.Windows.Forms.Button GCCFolderBrowser;
+        private System.Windows.Forms.Button GCCFolderBrowserButton;
         private System.Windows.Forms.RadioButton InitialPanelRadioButtonGCB;
         private System.Windows.Forms.TextBox GCCFilePathTextBox;
         private System.Windows.Forms.RadioButton InitialPanelRadioButtonLocal;
@@ -570,6 +598,9 @@ namespace GC_Transcription_Form
         private System.Windows.Forms.Label SettingsMainLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Button LocalFolderBrowserButton;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

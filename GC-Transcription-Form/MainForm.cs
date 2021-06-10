@@ -13,6 +13,9 @@ namespace GC_Transcription_Form
     public partial class MainForm : Form
     {
         private PanelTypes currentPanel;
+        private BackgroundWorker backgroundWorker;
+        private bool formClosePending;
+        
 
         enum PanelTypes
         {
@@ -24,35 +27,56 @@ namespace GC_Transcription_Form
         public MainForm()
         {
             InitializeComponent();
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.WorkerSupportsCancellation = true;
+            backgroundWorker.DoWork += BackgroundWorker_Update;
+            backgroundWorker.RunWorkerCompleted += BackgroundWorker_OnCompletion;
+            backgroundWorker.RunWorkerAsync();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void BackgroundWorker_Update(object sender, DoWorkEventArgs e)
         {
-            currentPanel = PanelTypes.Initial;
-            NextButton.Enabled = false;
-            BackButton.Enabled = false;
+            while (!backgroundWorker.CancellationPending)
+            {
+                Invoke((Action) (() => { InputCheck(); PanelUpdate(); }));
+            }
         }
 
-        private void Update()
+        private void BackgroundWorker_OnCompletion(object sender, RunWorkerCompletedEventArgs e)
         {
+            if (formClosePending)
+            {
+                Close();
+                formClosePending = false;
+            }
+        }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (backgroundWorker.IsBusy)
+            {
+                formClosePending = true;
+                backgroundWorker.CancelAsync();
+                e.Cancel = true;
+                //this.Enabled = false;
+                //return;
+            }
+            base.OnFormClosing(e);
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
             currentPanel += 1;
-            PanelUpdate();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
             currentPanel -= 1;
-            PanelUpdate();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            ActiveForm.Dispose();
+            ActiveForm.Close();
         }
 
 
@@ -84,13 +108,13 @@ namespace GC_Transcription_Form
             {
                 Console.WriteLine("Uh Oh bad issue with panel display");
             }
-            InputCheck();
         }
 
         private void InputCheck()
         {
             if (currentPanel == PanelTypes.Initial)
             {
+
                 if (GCCFilePathTextBox.Text.ToLower().Contains(".json") && (InitialPanelRadioButtonLocal.Checked == true || InitialPanelRadioButtonGCB.Checked == true))
                 {
                     NextButton.Enabled = true;
