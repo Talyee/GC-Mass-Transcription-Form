@@ -57,7 +57,7 @@ namespace GC_Transcription_Form
                 UseEnhanced = true,
                 Model = "phone_call",
                 DiarizationConfig = new SpeakerDiarizationConfig
-                {   
+                {
                     EnableSpeakerDiarization = true,
                     MinSpeakerCount = 3,
                     MaxSpeakerCount = 3
