@@ -35,52 +35,55 @@ namespace GC_Transcription_Form
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.OutputTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.InputBox = new System.Windows.Forms.GroupBox();
+            this.PanelInputBox = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.InitialPanel = new System.Windows.Forms.Panel();
+            this.InitialPanelLabel2 = new System.Windows.Forms.Label();
+            this.SaveTranscriptsFolderButton = new System.Windows.Forms.Button();
+            this.SaveTranscriptsFolderTextBox = new System.Windows.Forms.TextBox();
+            this.LocalFolderBrowserButton = new System.Windows.Forms.Button();
+            this.LocalFolderBrowserTextBox = new System.Windows.Forms.TextBox();
+            this.GCBFileStorageTextBox = new System.Windows.Forms.TextBox();
+            this.LocalFileStorageRadioButton = new System.Windows.Forms.RadioButton();
+            this.InitialPanelLabel3 = new System.Windows.Forms.Label();
+            this.GCBFileStorageRadioButton = new System.Windows.Forms.RadioButton();
+            this.GCCFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.GCCFileBrowserButton = new System.Windows.Forms.Button();
+            this.InitialPanelLabel1 = new System.Windows.Forms.Label();
             this.ProcessingPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.InitialPanel = new System.Windows.Forms.Panel();
-            this.LocalFolderBrowserButton = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.InitialPanelRadioButtonLocal = new System.Windows.Forms.RadioButton();
-            this.InitialPanelLabel2 = new System.Windows.Forms.Label();
-            this.InitialPanelRadioButtonGCB = new System.Windows.Forms.RadioButton();
-            this.GCCFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.GCCFolderBrowserButton = new System.Windows.Forms.Button();
-            this.InitialPanelLabel1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.SettingsMainLabel = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.checkBoxEnhanced = new System.Windows.Forms.CheckBox();
-            this.checkBoxPunctuation = new System.Windows.Forms.CheckBox();
-            this.checkBoxWordTime = new System.Windows.Forms.CheckBox();
-            this.checkBoxProfanity = new System.Windows.Forms.CheckBox();
-            this.checkBoxAudioChannelRec = new System.Windows.Forms.CheckBox();
-            this.InputBox.SuspendLayout();
+            this.SettingsLabel2 = new System.Windows.Forms.Label();
+            this.AudioChannelCount = new System.Windows.Forms.NumericUpDown();
+            this.SettingsLabel1 = new System.Windows.Forms.Label();
+            this.SpeechContextGroupBox = new System.Windows.Forms.GroupBox();
+            this.SettingsLabel7 = new System.Windows.Forms.Label();
+            this.SpeechContextFileLocationTextBox = new System.Windows.Forms.TextBox();
+            this.SpeechContextFileLocationButton = new System.Windows.Forms.Button();
+            this.CheckBoxSpeechContext = new System.Windows.Forms.CheckBox();
+            this.DiarizationGroupBox = new System.Windows.Forms.GroupBox();
+            this.SettingsLabel5 = new System.Windows.Forms.Label();
+            this.SettingsLabel6 = new System.Windows.Forms.Label();
+            this.MaximumSpeakerCount = new System.Windows.Forms.NumericUpDown();
+            this.MinimumSpeakerCount = new System.Windows.Forms.NumericUpDown();
+            this.CheckBoxSpeakerDiarization = new System.Windows.Forms.CheckBox();
+            this.SettingsLabel4 = new System.Windows.Forms.Label();
+            this.LanguageCodeSelection = new System.Windows.Forms.ComboBox();
+            this.SettingsLabel3 = new System.Windows.Forms.Label();
+            this.AudioModelTypeSelection = new System.Windows.Forms.ComboBox();
+            this.CheckBoxEnhanced = new System.Windows.Forms.CheckBox();
+            this.CheckBoxPunctuation = new System.Windows.Forms.CheckBox();
+            this.CheckBoxWordTime = new System.Windows.Forms.CheckBox();
+            this.CheckBoxProfanity = new System.Windows.Forms.CheckBox();
+            this.CheckBoxAudioChannelRec = new System.Windows.Forms.CheckBox();
+            this.PanelInputBox.SuspendLayout();
+            this.InitialPanel.SuspendLayout();
             this.ProcessingPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
-            this.InitialPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AudioChannelCount)).BeginInit();
+            this.SpeechContextGroupBox.SuspendLayout();
+            this.DiarizationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaximumSpeakerCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimumSpeakerCount)).BeginInit();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -144,19 +147,19 @@ namespace GC_Transcription_Form
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
             // 
-            // InputBox
+            // PanelInputBox
             // 
-            this.InputBox.Controls.Add(this.BackButton);
-            this.InputBox.Controls.Add(this.CancelButton);
-            this.InputBox.Controls.Add(this.label2);
-            this.InputBox.Controls.Add(this.NextButton);
-            this.InputBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.InputBox.Location = new System.Drawing.Point(-5, 334);
-            this.InputBox.Name = "InputBox";
-            this.InputBox.Size = new System.Drawing.Size(663, 80);
-            this.InputBox.TabIndex = 7;
-            this.InputBox.TabStop = false;
-            this.InputBox.Text = "GC Mass Transcriptor";
+            this.PanelInputBox.Controls.Add(this.BackButton);
+            this.PanelInputBox.Controls.Add(this.CancelButton);
+            this.PanelInputBox.Controls.Add(this.label2);
+            this.PanelInputBox.Controls.Add(this.NextButton);
+            this.PanelInputBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PanelInputBox.Location = new System.Drawing.Point(-5, 334);
+            this.PanelInputBox.Name = "PanelInputBox";
+            this.PanelInputBox.Size = new System.Drawing.Size(663, 80);
+            this.PanelInputBox.TabIndex = 7;
+            this.PanelInputBox.TabStop = false;
+            this.PanelInputBox.Text = "GC Mass Transcriptor";
             // 
             // label2
             // 
@@ -166,6 +169,135 @@ namespace GC_Transcription_Form
             this.label2.Size = new System.Drawing.Size(185, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thank you for using this software!";
+            // 
+            // InitialPanel
+            // 
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel2);
+            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderButton);
+            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderTextBox);
+            this.InitialPanel.Controls.Add(this.LocalFolderBrowserButton);
+            this.InitialPanel.Controls.Add(this.LocalFolderBrowserTextBox);
+            this.InitialPanel.Controls.Add(this.GCBFileStorageTextBox);
+            this.InitialPanel.Controls.Add(this.LocalFileStorageRadioButton);
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel3);
+            this.InitialPanel.Controls.Add(this.GCBFileStorageRadioButton);
+            this.InitialPanel.Controls.Add(this.GCCFilePathTextBox);
+            this.InitialPanel.Controls.Add(this.GCCFileBrowserButton);
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel1);
+            this.InitialPanel.Location = new System.Drawing.Point(0, 0);
+            this.InitialPanel.Name = "InitialPanel";
+            this.InitialPanel.Size = new System.Drawing.Size(663, 344);
+            this.InitialPanel.TabIndex = 5;
+            // 
+            // InitialPanelLabel2
+            // 
+            this.InitialPanelLabel2.AutoSize = true;
+            this.InitialPanelLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel2.Location = new System.Drawing.Point(52, 134);
+            this.InitialPanelLabel2.Name = "InitialPanelLabel2";
+            this.InitialPanelLabel2.Size = new System.Drawing.Size(248, 21);
+            this.InitialPanelLabel2.TabIndex = 14;
+            this.InitialPanelLabel2.Text = "Where are you audio files located?";
+            // 
+            // SaveTranscriptsFolderButton
+            // 
+            this.SaveTranscriptsFolderButton.Location = new System.Drawing.Point(542, 284);
+            this.SaveTranscriptsFolderButton.Name = "SaveTranscriptsFolderButton";
+            this.SaveTranscriptsFolderButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveTranscriptsFolderButton.TabIndex = 13;
+            this.SaveTranscriptsFolderButton.Text = "Browse...";
+            this.SaveTranscriptsFolderButton.UseVisualStyleBackColor = true;
+            this.SaveTranscriptsFolderButton.Click += new System.EventHandler(this.SaveTranscriptsFolderButton_Click);
+            // 
+            // SaveTranscriptsFolderTextBox
+            // 
+            this.SaveTranscriptsFolderTextBox.Location = new System.Drawing.Point(52, 284);
+            this.SaveTranscriptsFolderTextBox.Name = "SaveTranscriptsFolderTextBox";
+            this.SaveTranscriptsFolderTextBox.Size = new System.Drawing.Size(484, 23);
+            this.SaveTranscriptsFolderTextBox.TabIndex = 12;
+            // 
+            // LocalFolderBrowserButton
+            // 
+            this.LocalFolderBrowserButton.Location = new System.Drawing.Point(542, 162);
+            this.LocalFolderBrowserButton.Name = "LocalFolderBrowserButton";
+            this.LocalFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.LocalFolderBrowserButton.TabIndex = 10;
+            this.LocalFolderBrowserButton.Text = "Browse...";
+            this.LocalFolderBrowserButton.UseVisualStyleBackColor = true;
+            this.LocalFolderBrowserButton.Click += new System.EventHandler(this.LocalFolderBrowserButton_Click);
+            // 
+            // LocalFolderBrowserTextBox
+            // 
+            this.LocalFolderBrowserTextBox.Location = new System.Drawing.Point(195, 162);
+            this.LocalFolderBrowserTextBox.Name = "LocalFolderBrowserTextBox";
+            this.LocalFolderBrowserTextBox.Size = new System.Drawing.Size(341, 23);
+            this.LocalFolderBrowserTextBox.TabIndex = 8;
+            // 
+            // GCBFileStorageTextBox
+            // 
+            this.GCBFileStorageTextBox.Location = new System.Drawing.Point(195, 197);
+            this.GCBFileStorageTextBox.Name = "GCBFileStorageTextBox";
+            this.GCBFileStorageTextBox.Size = new System.Drawing.Size(422, 23);
+            this.GCBFileStorageTextBox.TabIndex = 7;
+            // 
+            // LocalFileStorageRadioButton
+            // 
+            this.LocalFileStorageRadioButton.AutoSize = true;
+            this.LocalFileStorageRadioButton.Location = new System.Drawing.Point(52, 164);
+            this.LocalFileStorageRadioButton.Name = "LocalFileStorageRadioButton";
+            this.LocalFileStorageRadioButton.Size = new System.Drawing.Size(122, 19);
+            this.LocalFileStorageRadioButton.TabIndex = 6;
+            this.LocalFileStorageRadioButton.TabStop = true;
+            this.LocalFileStorageRadioButton.Text = "My Local Machine";
+            this.LocalFileStorageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // InitialPanelLabel3
+            // 
+            this.InitialPanelLabel3.AutoSize = true;
+            this.InitialPanelLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel3.Location = new System.Drawing.Point(52, 254);
+            this.InitialPanelLabel3.Name = "InitialPanelLabel3";
+            this.InitialPanelLabel3.Size = new System.Drawing.Size(455, 21);
+            this.InitialPanelLabel3.TabIndex = 5;
+            this.InitialPanelLabel3.Text = "Where would you like your transcripted documents to be saved?";
+            // 
+            // GCBFileStorageRadioButton
+            // 
+            this.GCBFileStorageRadioButton.AutoSize = true;
+            this.GCBFileStorageRadioButton.Location = new System.Drawing.Point(52, 198);
+            this.GCBFileStorageRadioButton.Name = "GCBFileStorageRadioButton";
+            this.GCBFileStorageRadioButton.Size = new System.Drawing.Size(137, 19);
+            this.GCBFileStorageRadioButton.TabIndex = 4;
+            this.GCBFileStorageRadioButton.TabStop = true;
+            this.GCBFileStorageRadioButton.Text = "Google Cloud Bucket";
+            this.GCBFileStorageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // GCCFilePathTextBox
+            // 
+            this.GCCFilePathTextBox.Location = new System.Drawing.Point(52, 72);
+            this.GCCFilePathTextBox.Name = "GCCFilePathTextBox";
+            this.GCCFilePathTextBox.Size = new System.Drawing.Size(484, 23);
+            this.GCCFilePathTextBox.TabIndex = 3;
+            // 
+            // GCCFileBrowserButton
+            // 
+            this.GCCFileBrowserButton.Location = new System.Drawing.Point(542, 72);
+            this.GCCFileBrowserButton.Name = "GCCFileBrowserButton";
+            this.GCCFileBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.GCCFileBrowserButton.TabIndex = 2;
+            this.GCCFileBrowserButton.Text = "Browse...";
+            this.GCCFileBrowserButton.UseVisualStyleBackColor = true;
+            this.GCCFileBrowserButton.Click += new System.EventHandler(this.GCCFileBrowserButton_Click);
+            // 
+            // InitialPanelLabel1
+            // 
+            this.InitialPanelLabel1.AutoSize = true;
+            this.InitialPanelLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel1.Location = new System.Drawing.Point(52, 42);
+            this.InitialPanelLabel1.Name = "InitialPanelLabel1";
+            this.InitialPanelLabel1.Size = new System.Drawing.Size(464, 21);
+            this.InitialPanelLabel1.TabIndex = 1;
+            this.InitialPanelLabel1.Text = "Please select the path to your Google Cloud Credentials JSON file:";
             // 
             // ProcessingPanel
             // 
@@ -180,346 +312,251 @@ namespace GC_Transcription_Form
             // SettingsPanel
             // 
             this.SettingsPanel.Controls.Add(this.InitialPanel);
-            this.SettingsPanel.Controls.Add(this.label8);
-            this.SettingsPanel.Controls.Add(this.numericUpDown3);
-            this.SettingsPanel.Controls.Add(this.SettingsMainLabel);
-            this.SettingsPanel.Controls.Add(this.groupBox2);
-            this.SettingsPanel.Controls.Add(this.groupBox1);
-            this.SettingsPanel.Controls.Add(this.label4);
-            this.SettingsPanel.Controls.Add(this.comboBox2);
-            this.SettingsPanel.Controls.Add(this.label3);
-            this.SettingsPanel.Controls.Add(this.comboBox1);
-            this.SettingsPanel.Controls.Add(this.checkBoxEnhanced);
-            this.SettingsPanel.Controls.Add(this.checkBoxPunctuation);
-            this.SettingsPanel.Controls.Add(this.checkBoxWordTime);
-            this.SettingsPanel.Controls.Add(this.checkBoxProfanity);
-            this.SettingsPanel.Controls.Add(this.checkBoxAudioChannelRec);
-            this.SettingsPanel.Location = new System.Drawing.Point(0, 7);
+            this.SettingsPanel.Controls.Add(this.SettingsLabel2);
+            this.SettingsPanel.Controls.Add(this.AudioChannelCount);
+            this.SettingsPanel.Controls.Add(this.SettingsLabel1);
+            this.SettingsPanel.Controls.Add(this.SpeechContextGroupBox);
+            this.SettingsPanel.Controls.Add(this.DiarizationGroupBox);
+            this.SettingsPanel.Controls.Add(this.SettingsLabel4);
+            this.SettingsPanel.Controls.Add(this.LanguageCodeSelection);
+            this.SettingsPanel.Controls.Add(this.SettingsLabel3);
+            this.SettingsPanel.Controls.Add(this.AudioModelTypeSelection);
+            this.SettingsPanel.Controls.Add(this.CheckBoxEnhanced);
+            this.SettingsPanel.Controls.Add(this.CheckBoxPunctuation);
+            this.SettingsPanel.Controls.Add(this.CheckBoxWordTime);
+            this.SettingsPanel.Controls.Add(this.CheckBoxProfanity);
+            this.SettingsPanel.Controls.Add(this.CheckBoxAudioChannelRec);
+            this.SettingsPanel.Location = new System.Drawing.Point(1, 7);
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Size = new System.Drawing.Size(663, 352);
             this.SettingsPanel.TabIndex = 7;
             // 
-            // InitialPanel
+            // SettingsLabel2
             // 
-            this.InitialPanel.Controls.Add(this.LocalFolderBrowserButton);
-            this.InitialPanel.Controls.Add(this.textBox3);
-            this.InitialPanel.Controls.Add(this.textBox2);
-            this.InitialPanel.Controls.Add(this.InitialPanelRadioButtonLocal);
-            this.InitialPanel.Controls.Add(this.InitialPanelLabel2);
-            this.InitialPanel.Controls.Add(this.InitialPanelRadioButtonGCB);
-            this.InitialPanel.Controls.Add(this.GCCFilePathTextBox);
-            this.InitialPanel.Controls.Add(this.GCCFolderBrowserButton);
-            this.InitialPanel.Controls.Add(this.InitialPanelLabel1);
-            this.InitialPanel.Location = new System.Drawing.Point(0, 0);
-            this.InitialPanel.Name = "InitialPanel";
-            this.InitialPanel.Size = new System.Drawing.Size(663, 344);
-            this.InitialPanel.TabIndex = 5;
+            this.SettingsLabel2.AutoSize = true;
+            this.SettingsLabel2.Location = new System.Drawing.Point(34, 188);
+            this.SettingsLabel2.Name = "SettingsLabel2";
+            this.SettingsLabel2.Size = new System.Drawing.Size(122, 15);
+            this.SettingsLabel2.TabIndex = 13;
+            this.SettingsLabel2.Text = "Audio Channel Count";
             // 
-            // LocalFolderBrowserButton
+            // AudioChannelCount
             // 
-            this.LocalFolderBrowserButton.Location = new System.Drawing.Point(543, 235);
-            this.LocalFolderBrowserButton.Name = "LocalFolderBrowserButton";
-            this.LocalFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
-            this.LocalFolderBrowserButton.TabIndex = 10;
-            this.LocalFolderBrowserButton.Text = "Browse...";
-            this.LocalFolderBrowserButton.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(196, 235);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(341, 23);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(196, 270);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(422, 23);
-            this.textBox2.TabIndex = 7;
-            // 
-            // InitialPanelRadioButtonLocal
-            // 
-            this.InitialPanelRadioButtonLocal.AutoSize = true;
-            this.InitialPanelRadioButtonLocal.Location = new System.Drawing.Point(53, 237);
-            this.InitialPanelRadioButtonLocal.Name = "InitialPanelRadioButtonLocal";
-            this.InitialPanelRadioButtonLocal.Size = new System.Drawing.Size(122, 19);
-            this.InitialPanelRadioButtonLocal.TabIndex = 6;
-            this.InitialPanelRadioButtonLocal.TabStop = true;
-            this.InitialPanelRadioButtonLocal.Text = "My Local Machine";
-            this.InitialPanelRadioButtonLocal.UseVisualStyleBackColor = true;
-            // 
-            // InitialPanelLabel2
-            // 
-            this.InitialPanelLabel2.AutoSize = true;
-            this.InitialPanelLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InitialPanelLabel2.Location = new System.Drawing.Point(53, 182);
-            this.InitialPanelLabel2.Name = "InitialPanelLabel2";
-            this.InitialPanelLabel2.Size = new System.Drawing.Size(455, 21);
-            this.InitialPanelLabel2.TabIndex = 5;
-            this.InitialPanelLabel2.Text = "Where would you like your transcripted documents to be saved?";
-            // 
-            // InitialPanelRadioButtonGCB
-            // 
-            this.InitialPanelRadioButtonGCB.AutoSize = true;
-            this.InitialPanelRadioButtonGCB.Location = new System.Drawing.Point(53, 271);
-            this.InitialPanelRadioButtonGCB.Name = "InitialPanelRadioButtonGCB";
-            this.InitialPanelRadioButtonGCB.Size = new System.Drawing.Size(137, 19);
-            this.InitialPanelRadioButtonGCB.TabIndex = 4;
-            this.InitialPanelRadioButtonGCB.TabStop = true;
-            this.InitialPanelRadioButtonGCB.Text = "Google Cloud Bucket";
-            this.InitialPanelRadioButtonGCB.UseVisualStyleBackColor = true;
-            // 
-            // GCCFilePathTextBox
-            // 
-            this.GCCFilePathTextBox.Location = new System.Drawing.Point(53, 114);
-            this.GCCFilePathTextBox.Name = "GCCFilePathTextBox";
-            this.GCCFilePathTextBox.Size = new System.Drawing.Size(484, 23);
-            this.GCCFilePathTextBox.TabIndex = 3;
-            // 
-            // GCCFolderBrowserButton
-            // 
-            this.GCCFolderBrowserButton.Location = new System.Drawing.Point(543, 114);
-            this.GCCFolderBrowserButton.Name = "GCCFolderBrowserButton";
-            this.GCCFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
-            this.GCCFolderBrowserButton.TabIndex = 2;
-            this.GCCFolderBrowserButton.Text = "Browse...";
-            this.GCCFolderBrowserButton.UseVisualStyleBackColor = true;
-            this.GCCFolderBrowserButton.Click += new System.EventHandler(this.GCCFolderBrowser_Click);
-            // 
-            // InitialPanelLabel1
-            // 
-            this.InitialPanelLabel1.AutoSize = true;
-            this.InitialPanelLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InitialPanelLabel1.Location = new System.Drawing.Point(53, 54);
-            this.InitialPanelLabel1.Name = "InitialPanelLabel1";
-            this.InitialPanelLabel1.Size = new System.Drawing.Size(464, 21);
-            this.InitialPanelLabel1.TabIndex = 1;
-            this.InitialPanelLabel1.Text = "Please select the path to your Google Cloud Credentials JSON file:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 188);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 15);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Audio Channel Count";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(34, 204);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(186, 23);
-            this.numericUpDown3.TabIndex = 12;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.AudioChannelCount.Location = new System.Drawing.Point(34, 204);
+            this.AudioChannelCount.Name = "AudioChannelCount";
+            this.AudioChannelCount.Size = new System.Drawing.Size(186, 23);
+            this.AudioChannelCount.TabIndex = 12;
+            this.AudioChannelCount.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // SettingsMainLabel
+            // SettingsLabel1
             // 
-            this.SettingsMainLabel.AutoSize = true;
-            this.SettingsMainLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SettingsMainLabel.Location = new System.Drawing.Point(34, 14);
-            this.SettingsMainLabel.Name = "SettingsMainLabel";
-            this.SettingsMainLabel.Size = new System.Drawing.Size(245, 21);
-            this.SettingsMainLabel.TabIndex = 11;
-            this.SettingsMainLabel.Text = "Please Select The Desired Settings";
+            this.SettingsLabel1.AutoSize = true;
+            this.SettingsLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SettingsLabel1.Location = new System.Drawing.Point(34, 14);
+            this.SettingsLabel1.Name = "SettingsLabel1";
+            this.SettingsLabel1.Size = new System.Drawing.Size(245, 21);
+            this.SettingsLabel1.TabIndex = 11;
+            this.SettingsLabel1.Text = "Please Select The Desired Settings";
             // 
-            // groupBox2
+            // SpeechContextGroupBox
             // 
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.checkBox7);
-            this.groupBox2.Location = new System.Drawing.Point(311, 188);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 142);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Speech Context";
+            this.SpeechContextGroupBox.Controls.Add(this.SettingsLabel7);
+            this.SpeechContextGroupBox.Controls.Add(this.SpeechContextFileLocationTextBox);
+            this.SpeechContextGroupBox.Controls.Add(this.SpeechContextFileLocationButton);
+            this.SpeechContextGroupBox.Controls.Add(this.CheckBoxSpeechContext);
+            this.SpeechContextGroupBox.Location = new System.Drawing.Point(311, 188);
+            this.SpeechContextGroupBox.Name = "SpeechContextGroupBox";
+            this.SpeechContextGroupBox.Size = new System.Drawing.Size(352, 142);
+            this.SpeechContextGroupBox.TabIndex = 10;
+            this.SpeechContextGroupBox.TabStop = false;
+            this.SpeechContextGroupBox.Text = "Speech Context";
             // 
-            // label7
+            // SettingsLabel7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 15);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Speech Context Text File Location";
+            this.SettingsLabel7.AutoSize = true;
+            this.SettingsLabel7.Location = new System.Drawing.Point(27, 66);
+            this.SettingsLabel7.Name = "SettingsLabel7";
+            this.SettingsLabel7.Size = new System.Drawing.Size(184, 15);
+            this.SettingsLabel7.TabIndex = 3;
+            this.SettingsLabel7.Text = "Speech Context Text File Location";
             // 
-            // textBox1
+            // SpeechContextFileLocationTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 23);
-            this.textBox1.TabIndex = 2;
+            this.SpeechContextFileLocationTextBox.Location = new System.Drawing.Point(27, 84);
+            this.SpeechContextFileLocationTextBox.Name = "SpeechContextFileLocationTextBox";
+            this.SpeechContextFileLocationTextBox.Size = new System.Drawing.Size(214, 23);
+            this.SpeechContextFileLocationTextBox.TabIndex = 2;
             // 
-            // button1
+            // SpeechContextFileLocationButton
             // 
-            this.button1.Location = new System.Drawing.Point(245, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Browse...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SpeechContextFileLocationButton.Location = new System.Drawing.Point(245, 84);
+            this.SpeechContextFileLocationButton.Name = "SpeechContextFileLocationButton";
+            this.SpeechContextFileLocationButton.Size = new System.Drawing.Size(75, 23);
+            this.SpeechContextFileLocationButton.TabIndex = 1;
+            this.SpeechContextFileLocationButton.Text = "Browse...";
+            this.SpeechContextFileLocationButton.UseVisualStyleBackColor = true;
+            this.SpeechContextFileLocationButton.Click += new System.EventHandler(this.SpeechContextFileLocationButton_Click);
             // 
-            // checkBox7
+            // CheckBoxSpeechContext
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 22);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(147, 19);
-            this.checkBox7.TabIndex = 0;
-            this.checkBox7.Text = "Enable Speech Context";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.CheckBoxSpeechContext.AutoSize = true;
+            this.CheckBoxSpeechContext.Location = new System.Drawing.Point(6, 22);
+            this.CheckBoxSpeechContext.Name = "CheckBoxSpeechContext";
+            this.CheckBoxSpeechContext.Size = new System.Drawing.Size(147, 19);
+            this.CheckBoxSpeechContext.TabIndex = 0;
+            this.CheckBoxSpeechContext.Text = "Enable Speech Context";
+            this.CheckBoxSpeechContext.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // DiarizationGroupBox
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Location = new System.Drawing.Point(311, 42);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(352, 135);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Diarization";
+            this.DiarizationGroupBox.Controls.Add(this.SettingsLabel5);
+            this.DiarizationGroupBox.Controls.Add(this.SettingsLabel6);
+            this.DiarizationGroupBox.Controls.Add(this.MaximumSpeakerCount);
+            this.DiarizationGroupBox.Controls.Add(this.MinimumSpeakerCount);
+            this.DiarizationGroupBox.Controls.Add(this.CheckBoxSpeakerDiarization);
+            this.DiarizationGroupBox.Location = new System.Drawing.Point(311, 42);
+            this.DiarizationGroupBox.Name = "DiarizationGroupBox";
+            this.DiarizationGroupBox.Size = new System.Drawing.Size(352, 135);
+            this.DiarizationGroupBox.TabIndex = 9;
+            this.DiarizationGroupBox.TabStop = false;
+            this.DiarizationGroupBox.Text = "Diarization";
             // 
-            // label5
+            // SettingsLabel5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Minimum Speakers";
+            this.SettingsLabel5.AutoSize = true;
+            this.SettingsLabel5.Location = new System.Drawing.Point(27, 66);
+            this.SettingsLabel5.Name = "SettingsLabel5";
+            this.SettingsLabel5.Size = new System.Drawing.Size(109, 15);
+            this.SettingsLabel5.TabIndex = 3;
+            this.SettingsLabel5.Text = "Minimum Speakers";
             // 
-            // label6
+            // SettingsLabel6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(200, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 15);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Maximum Speakers";
+            this.SettingsLabel6.AutoSize = true;
+            this.SettingsLabel6.Location = new System.Drawing.Point(200, 66);
+            this.SettingsLabel6.Name = "SettingsLabel6";
+            this.SettingsLabel6.Size = new System.Drawing.Size(111, 15);
+            this.SettingsLabel6.TabIndex = 3;
+            this.SettingsLabel6.Text = "Maximum Speakers";
             // 
-            // numericUpDown2
+            // MaximumSpeakerCount
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(200, 84);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown2.TabIndex = 2;
+            this.MaximumSpeakerCount.Location = new System.Drawing.Point(200, 84);
+            this.MaximumSpeakerCount.Name = "MaximumSpeakerCount";
+            this.MaximumSpeakerCount.Size = new System.Drawing.Size(120, 23);
+            this.MaximumSpeakerCount.TabIndex = 2;
             // 
-            // numericUpDown1
+            // MinimumSpeakerCount
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(27, 84);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 1;
+            this.MinimumSpeakerCount.Location = new System.Drawing.Point(27, 84);
+            this.MinimumSpeakerCount.Name = "MinimumSpeakerCount";
+            this.MinimumSpeakerCount.Size = new System.Drawing.Size(120, 23);
+            this.MinimumSpeakerCount.TabIndex = 1;
             // 
-            // checkBox6
+            // CheckBoxSpeakerDiarization
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(6, 22);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(164, 19);
-            this.checkBox6.TabIndex = 0;
-            this.checkBox6.Text = "Enable Speaker Diarization";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.CheckBoxSpeakerDiarization.AutoSize = true;
+            this.CheckBoxSpeakerDiarization.Location = new System.Drawing.Point(6, 22);
+            this.CheckBoxSpeakerDiarization.Name = "CheckBoxSpeakerDiarization";
+            this.CheckBoxSpeakerDiarization.Size = new System.Drawing.Size(164, 19);
+            this.CheckBoxSpeakerDiarization.TabIndex = 0;
+            this.CheckBoxSpeakerDiarization.Text = "Enable Speaker Diarization";
+            this.CheckBoxSpeakerDiarization.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // SettingsLabel4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 281);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Language Code";
+            this.SettingsLabel4.AutoSize = true;
+            this.SettingsLabel4.Location = new System.Drawing.Point(34, 281);
+            this.SettingsLabel4.Name = "SettingsLabel4";
+            this.SettingsLabel4.Size = new System.Drawing.Size(90, 15);
+            this.SettingsLabel4.TabIndex = 8;
+            this.SettingsLabel4.Text = "Language Code";
             // 
-            // comboBox2
+            // LanguageCodeSelection
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(34, 299);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(186, 23);
-            this.comboBox2.TabIndex = 7;
+            this.LanguageCodeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LanguageCodeSelection.FormattingEnabled = true;
+            this.LanguageCodeSelection.Location = new System.Drawing.Point(34, 299);
+            this.LanguageCodeSelection.Name = "LanguageCodeSelection";
+            this.LanguageCodeSelection.Size = new System.Drawing.Size(186, 23);
+            this.LanguageCodeSelection.TabIndex = 7;
             // 
-            // label3
+            // SettingsLabel3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Model Type";
+            this.SettingsLabel3.AutoSize = true;
+            this.SettingsLabel3.Location = new System.Drawing.Point(34, 234);
+            this.SettingsLabel3.Name = "SettingsLabel3";
+            this.SettingsLabel3.Size = new System.Drawing.Size(68, 15);
+            this.SettingsLabel3.TabIndex = 6;
+            this.SettingsLabel3.Text = "Model Type";
             // 
-            // comboBox1
+            // AudioModelTypeSelection
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AudioModelTypeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AudioModelTypeSelection.FormattingEnabled = true;
+            this.AudioModelTypeSelection.Items.AddRange(new object[] {
             "Default",
             "Phone Call",
             "Video",
             "Voice Commands"});
-            this.comboBox1.Location = new System.Drawing.Point(34, 252);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 23);
-            this.comboBox1.TabIndex = 5;
+            this.AudioModelTypeSelection.Location = new System.Drawing.Point(34, 252);
+            this.AudioModelTypeSelection.Name = "AudioModelTypeSelection";
+            this.AudioModelTypeSelection.Size = new System.Drawing.Size(186, 23);
+            this.AudioModelTypeSelection.TabIndex = 5;
             // 
-            // checkBoxEnhanced
+            // CheckBoxEnhanced
             // 
-            this.checkBoxEnhanced.AutoSize = true;
-            this.checkBoxEnhanced.Location = new System.Drawing.Point(34, 58);
-            this.checkBoxEnhanced.Name = "checkBoxEnhanced";
-            this.checkBoxEnhanced.Size = new System.Drawing.Size(186, 19);
-            this.checkBoxEnhanced.TabIndex = 4;
-            this.checkBoxEnhanced.Text = "Enhanced Speech Recognition";
-            this.checkBoxEnhanced.UseVisualStyleBackColor = true;
+            this.CheckBoxEnhanced.AutoSize = true;
+            this.CheckBoxEnhanced.Location = new System.Drawing.Point(34, 58);
+            this.CheckBoxEnhanced.Name = "CheckBoxEnhanced";
+            this.CheckBoxEnhanced.Size = new System.Drawing.Size(186, 19);
+            this.CheckBoxEnhanced.TabIndex = 4;
+            this.CheckBoxEnhanced.Text = "Enhanced Speech Recognition";
+            this.CheckBoxEnhanced.UseVisualStyleBackColor = true;
             // 
-            // checkBoxPunctuation
+            // CheckBoxPunctuation
             // 
-            this.checkBoxPunctuation.AutoSize = true;
-            this.checkBoxPunctuation.Location = new System.Drawing.Point(34, 83);
-            this.checkBoxPunctuation.Name = "checkBoxPunctuation";
-            this.checkBoxPunctuation.Size = new System.Drawing.Size(150, 19);
-            this.checkBoxPunctuation.TabIndex = 3;
-            this.checkBoxPunctuation.Text = "Automatic Punctuation";
-            this.checkBoxPunctuation.UseVisualStyleBackColor = true;
+            this.CheckBoxPunctuation.AutoSize = true;
+            this.CheckBoxPunctuation.Location = new System.Drawing.Point(34, 83);
+            this.CheckBoxPunctuation.Name = "CheckBoxPunctuation";
+            this.CheckBoxPunctuation.Size = new System.Drawing.Size(150, 19);
+            this.CheckBoxPunctuation.TabIndex = 3;
+            this.CheckBoxPunctuation.Text = "Automatic Punctuation";
+            this.CheckBoxPunctuation.UseVisualStyleBackColor = true;
             // 
-            // checkBoxWordTime
+            // CheckBoxWordTime
             // 
-            this.checkBoxWordTime.AutoSize = true;
-            this.checkBoxWordTime.Location = new System.Drawing.Point(34, 133);
-            this.checkBoxWordTime.Name = "checkBoxWordTime";
-            this.checkBoxWordTime.Size = new System.Drawing.Size(119, 19);
-            this.checkBoxWordTime.TabIndex = 2;
-            this.checkBoxWordTime.Text = "Word Time Offset";
-            this.checkBoxWordTime.UseVisualStyleBackColor = true;
+            this.CheckBoxWordTime.AutoSize = true;
+            this.CheckBoxWordTime.Location = new System.Drawing.Point(34, 133);
+            this.CheckBoxWordTime.Name = "CheckBoxWordTime";
+            this.CheckBoxWordTime.Size = new System.Drawing.Size(119, 19);
+            this.CheckBoxWordTime.TabIndex = 2;
+            this.CheckBoxWordTime.Text = "Word Time Offset";
+            this.CheckBoxWordTime.UseVisualStyleBackColor = true;
             // 
-            // checkBoxProfanity
+            // CheckBoxProfanity
             // 
-            this.checkBoxProfanity.AutoSize = true;
-            this.checkBoxProfanity.Location = new System.Drawing.Point(34, 108);
-            this.checkBoxProfanity.Name = "checkBoxProfanity";
-            this.checkBoxProfanity.Size = new System.Drawing.Size(103, 19);
-            this.checkBoxProfanity.TabIndex = 1;
-            this.checkBoxProfanity.Text = "Profanity Filter";
-            this.checkBoxProfanity.UseVisualStyleBackColor = true;
+            this.CheckBoxProfanity.AutoSize = true;
+            this.CheckBoxProfanity.Location = new System.Drawing.Point(34, 108);
+            this.CheckBoxProfanity.Name = "CheckBoxProfanity";
+            this.CheckBoxProfanity.Size = new System.Drawing.Size(103, 19);
+            this.CheckBoxProfanity.TabIndex = 1;
+            this.CheckBoxProfanity.Text = "Profanity Filter";
+            this.CheckBoxProfanity.UseVisualStyleBackColor = true;
             // 
-            // checkBoxAudioChannelRec
+            // CheckBoxAudioChannelRec
             // 
-            this.checkBoxAudioChannelRec.AutoSize = true;
-            this.checkBoxAudioChannelRec.Location = new System.Drawing.Point(34, 158);
-            this.checkBoxAudioChannelRec.Name = "checkBoxAudioChannelRec";
-            this.checkBoxAudioChannelRec.Size = new System.Drawing.Size(220, 19);
-            this.checkBoxAudioChannelRec.TabIndex = 0;
-            this.checkBoxAudioChannelRec.Text = "Seperate Audio Channel Recognition";
-            this.checkBoxAudioChannelRec.UseVisualStyleBackColor = true;
+            this.CheckBoxAudioChannelRec.AutoSize = true;
+            this.CheckBoxAudioChannelRec.Location = new System.Drawing.Point(34, 158);
+            this.CheckBoxAudioChannelRec.Name = "CheckBoxAudioChannelRec";
+            this.CheckBoxAudioChannelRec.Size = new System.Drawing.Size(220, 19);
+            this.CheckBoxAudioChannelRec.TabIndex = 0;
+            this.CheckBoxAudioChannelRec.Text = "Seperate Audio Channel Recognition";
+            this.CheckBoxAudioChannelRec.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -530,7 +567,7 @@ namespace GC_Transcription_Form
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 393);
-            this.Controls.Add(this.InputBox);
+            this.Controls.Add(this.PanelInputBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ProcessingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -538,20 +575,20 @@ namespace GC_Transcription_Form
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GC Mass Transcriptor";
-            this.InputBox.ResumeLayout(false);
-            this.InputBox.PerformLayout();
+            this.PanelInputBox.ResumeLayout(false);
+            this.PanelInputBox.PerformLayout();
+            this.InitialPanel.ResumeLayout(false);
+            this.InitialPanel.PerformLayout();
             this.ProcessingPanel.ResumeLayout(false);
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
-            this.InitialPanel.ResumeLayout(false);
-            this.InitialPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AudioChannelCount)).EndInit();
+            this.SpeechContextGroupBox.ResumeLayout(false);
+            this.SpeechContextGroupBox.PerformLayout();
+            this.DiarizationGroupBox.ResumeLayout(false);
+            this.DiarizationGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaximumSpeakerCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimumSpeakerCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,44 +600,53 @@ namespace GC_Transcription_Form
         private System.Windows.Forms.ProgressBar ProgressBar;
         private System.Windows.Forms.RichTextBox OutputTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox InputBox;
+        private System.Windows.Forms.GroupBox PanelInputBox;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Panel ProcessingPanel;
         private System.Windows.Forms.Panel InitialPanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label InitialPanelLabel1;
-        private System.Windows.Forms.Button GCCFolderBrowserButton;
-        private System.Windows.Forms.RadioButton InitialPanelRadioButtonGCB;
+        private System.Windows.Forms.Button GCCFileBrowserButton;
+        private System.Windows.Forms.RadioButton RadioButtonGCBFileStorage;
         private System.Windows.Forms.TextBox GCCFilePathTextBox;
-        private System.Windows.Forms.RadioButton InitialPanelRadioButtonLocal;
-        private System.Windows.Forms.Label InitialPanelLabel2;
+        private System.Windows.Forms.RadioButton LocalFileStorageRadioButton;
+        private System.Windows.Forms.Label InitialPanelLabel3;
         private System.Windows.Forms.Panel SettingsPanel;
-        private System.Windows.Forms.CheckBox checkBoxEnhanced;
-        private System.Windows.Forms.CheckBox checkBoxPunctuation;
-        private System.Windows.Forms.CheckBox checkBoxWordTime;
-        private System.Windows.Forms.CheckBox checkBoxProfanity;
-        private System.Windows.Forms.CheckBox checkBoxAudioChannelRec;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label SettingsMainLabel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.CheckBox CheckBoxEnhanced;
+        private System.Windows.Forms.CheckBox CheckBoxPunctuation;
+        private System.Windows.Forms.CheckBox CheckBoxWordTime;
+        private System.Windows.Forms.CheckBox CheckBoxProfanity;
+        private System.Windows.Forms.CheckBox CheckBoxAudioChannelRec;
+        private System.Windows.Forms.ComboBox AudioModelTypeSelection;
+        private System.Windows.Forms.Label SettingsLabel4;
+        private System.Windows.Forms.ComboBox LanguageCodeSelection;
+        private System.Windows.Forms.Label SettingsLabel3;
+        private System.Windows.Forms.GroupBox SpeechContextGroupBox;
+        private System.Windows.Forms.GroupBox DiarizationGroupBox;
+        private System.Windows.Forms.CheckBox checkBoxSpeechContext;
+        private System.Windows.Forms.CheckBox CheckBoxSpeakerDiarization;
+        private System.Windows.Forms.NumericUpDown MaximumSpeakerCount;
+        private System.Windows.Forms.NumericUpDown MinimumSpeakerCount;
+        private System.Windows.Forms.Label SettingsLabel5;
+        private System.Windows.Forms.Label SettingsLabel6;
+        private System.Windows.Forms.Label SettingsLabel7;
+        private System.Windows.Forms.TextBox SpeechContextFileLocationTextBox;
+        private System.Windows.Forms.Button SpeechContextFileLocationButton;
+        private System.Windows.Forms.Label SettingsLabel1;
+        private System.Windows.Forms.Label SettingsLabel2;
+        private System.Windows.Forms.NumericUpDown AudioChannelCount;
         private System.Windows.Forms.Button LocalFolderBrowserButton;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox LocalFolderBrowserTextBox;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RadioButton RadioButtonLocal;
+        private System.Windows.Forms.TextBox GCBFileStorageTextBox;
+        private System.Windows.Forms.RadioButton GCBFileStorageRadioButton;
+        private System.Windows.Forms.CheckBox CheckBoxSpeechContext;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox SaveTranscriptsFolderTextBox;
+        private System.Windows.Forms.Button SaveTranscriptsFolderButton;
+        private System.Windows.Forms.Label InitialPanelLabel2;
     }
 }
 

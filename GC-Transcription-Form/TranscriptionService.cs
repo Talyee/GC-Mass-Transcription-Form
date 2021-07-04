@@ -7,22 +7,40 @@ using Newtonsoft.Json;
 
 namespace GC_Transcription_Form
 {
-    public class Config
+    public class TranscriptionConfig
     {
         public string GoogleCloudCredentialsPath { get; set; }
         public string GoogleCloudAudioBucketUrl { get; set; }
         public string AudioFileDirectory { get; set; }
-        public string AudioFileType { get; set; }
         public string TranscriptionOutputDirectory { get; set; }
+        public bool EnhancedSpeaker { get; set; }
+        public bool Punctuation { get; set; }
+        public bool Profanity { get; set; }
+        public bool WordTimeOffset { get; set; }
+        public bool SeperateAudioChannel { get; set; }
+        public decimal AudioChannelCount { get; set; }
+        public string ModelType { get; set; }
+        public string LanguageCode { get; set; }
+        public bool SpeakerDiarization { get; set; }
+        public decimal MinSpeakers { get; set; }
+        public decimal MaxSpeakers { get; set; }
+        public bool SpeechContext { get; set; }
+        public string SpeechContextFilePath { get; set; }
+        public string AudioFileType { get; set; }
     }
 
-    class TranscriptionService
+    public interface ITranscriptionService
+    {
+        
+    }
+
+    class TranscriptionService : ITranscriptionService
     {
         public TranscriptionService()
         {
             //get config from json
             string jsonString = File.ReadAllText("C:/Users/Tim/source/repos/BFStranscribe/BFStranscribe/config.json");
-            Config config = JsonConvert.DeserializeObject<Config>(jsonString);
+            TranscriptionConfig config = JsonConvert.DeserializeObject<TranscriptionConfig>(jsonString);
 
             //get the every audio file to be transcribed
             string[] filePaths = Directory.GetFiles(config.AudioFileDirectory, "*" + config.AudioFileType);
@@ -40,8 +58,13 @@ namespace GC_Transcription_Form
             }
         }
 
+        public void getData()
+        {
+
+        }
+
         //based on code from GoogleCloudPlatform/dotnet-docs-samples/speech/api/Recognize/Recognize.cs
-        private List<string> LongSpeechToTextTranscription(Config config, string audioFileName)
+        List<string> LongSpeechToTextTranscription(TranscriptionConfig config, string audioFileName)
         {
             List<string> transcriptLines = new List<string>();
             SpeechClientBuilder speechClientBuilder = new SpeechClientBuilder();
