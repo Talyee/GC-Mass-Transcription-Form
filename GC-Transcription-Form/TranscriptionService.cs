@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Google.Cloud.Speech.V1;
-using Newtonsoft.Json;
 
 namespace GC_Transcription_Form
 {
-    public class TranscriptionConfig
+    public class TranscriptorConfig
     {
         public string GoogleCloudCredentialsPath { get; set; }
         public string GoogleCloudAudioBucketUrl { get; set; }
@@ -31,65 +30,60 @@ namespace GC_Transcription_Form
 
     public interface ITranscriptionService
     {
-        
+        void BeginTranscription(TranscriptorConfig transcriptorConfig);
     }
 
     class TranscriptionService : ITranscriptionService
     {
-        public TranscriptionService()
-        {
-            //get config from json
-            string jsonString = File.ReadAllText("C:/Users/Tim/source/repos/BFStranscribe/BFStranscribe/config.json");
-            TranscriptionConfig config = JsonConvert.DeserializeObject<TranscriptionConfig>(jsonString);
+        private TranscriptorConfig _transcriptorConfig;
 
-            //get the every audio file to be transcribed
-            string[] filePaths = Directory.GetFiles(config.AudioFileDirectory, "*" + config.AudioFileType);
+        public void BeginTranscription(TranscriptorConfig transcriptorConfig)
+        {
+            //set config
+            _transcriptorConfig = transcriptorConfig;
+            //get every audio file to be transcribed
+            string[] filePaths = Directory.GetFiles(transcriptorConfig.AudioFileDirectory);
             foreach (string filePath in filePaths)
             {
                 string audioFileName = Path.GetFileName(filePath);
                 string transcriptionFileName = audioFileName.Replace("mp3", "txt");
                 //check if transcription has already been made
-                if (File.Exists(config.TranscriptionOutputDirectory + transcriptionFileName) == true) { continue; }
+                if (File.Exists(_transcriptorConfig.TranscriptionOutputDirectory + transcriptionFileName) == true) { continue; }
                 //send file to the API and get back a transcript
-                List<string> transcriptLines = LongSpeechToTextTranscription(config, audioFileName);
+                List<string> transcriptLines = LongSpeechToTextTranscription(_transcriptorConfig, audioFileName);
                 //write all lines for that file into a text document
-                File.WriteAllLines(config.TranscriptionOutputDirectory + transcriptionFileName, transcriptLines);
-                Console.WriteLine($"Your completed transcription has been stored here:" + config.TranscriptionOutputDirectory + transcriptionFileName );
+                File.WriteAllLines(_transcriptorConfig.TranscriptionOutputDirectory + transcriptionFileName, transcriptLines);
+                Console.WriteLine($"Your completed transcription has been stored here:" + _transcriptorConfig.TranscriptionOutputDirectory + transcriptionFileName);
             }
         }
 
-        public void getData()
-        {
-
-        }
-
         //based on code from GoogleCloudPlatform/dotnet-docs-samples/speech/api/Recognize/Recognize.cs
-        List<string> LongSpeechToTextTranscription(TranscriptionConfig config, string audioFileName)
+        private List<string> LongSpeechToTextTranscription(TranscriptorConfig transcriptorConfig, string audioFileName)
         {
             List<string> transcriptLines = new List<string>();
             SpeechClientBuilder speechClientBuilder = new SpeechClientBuilder();
             //Credentials document provided by Google
-            speechClientBuilder.CredentialsPath = config.GoogleCloudCredentialsPath;
-            var speech = speechClientBuilder.Build();
+            speechClientBuilder.CredentialsPath = transcriptorConfig.GoogleCloudCredentialsPath;
+            SpeechClient speech = speechClientBuilder.Build();
             var longOperation = speech.LongRunningRecognize(new RecognitionConfig()
             {//main config for API request
                 Encoding = RecognitionConfig.Types.AudioEncoding.EncodingUnspecified,
                 SampleRateHertz = 44100,
-                LanguageCode = "en-US",
-                EnableAutomaticPunctuation = true,
-                UseEnhanced = true,
-                Model = "phone_call",
+                UseEnhanced = transcriptorConfig.EnhancedSpeaker,
+                LanguageCode = transcriptorConfig.LanguageCode,
+                EnableAutomaticPunctuation = transcriptorConfig.Punctuation,
+                Model = transcriptorConfig.ModelType,
                 DiarizationConfig = new SpeakerDiarizationConfig
                 {
                     EnableSpeakerDiarization = true,
                     MinSpeakerCount = 3,
                     MaxSpeakerCount = 3
                 }
-            }, RecognitionAudio.FromStorageUri(config.GoogleCloudAudioBucketUrl + audioFileName));
+            }, RecognitionAudio.FromStorageUri(transcriptorConfig.GoogleCloudAudioBucketUrl + audioFileName)); ; ;
             while (longOperation.IsCompleted == false)
             {
                 var rpc = longOperation.Client.GetOperation(longOperation.RpcMessage.Name);
-                rpc.Metadata.TryUnpack(out LongRunningRecognizeMetadata  metadata);
+                rpc.Metadata.TryUnpack(out LongRunningRecognizeMetadata metadata);
                 if (metadata != null)
                 {
                     Console.WriteLine($"{DateTime.Now}: {audioFileName} is {metadata.ProgressPercent}% complete...");
@@ -101,6 +95,7 @@ namespace GC_Transcription_Form
                 Thread.Sleep(30000); //remove magic number lmao
             }
             var response = longOperation.Result;
+
             //seperates it all into individual lines said for a better transcription to file
             foreach (var result in response.Results)
             {

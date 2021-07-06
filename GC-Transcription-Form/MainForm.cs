@@ -16,9 +16,10 @@ namespace GC_Transcription_Form
     {
         private PanelTypes currentPanel;
         private ITranscriptionService _transcriptionService;
-        private TranscriptionConfig _transcriptionConfig;
+        private TranscriptorConfig _transcriptorConfig;
         private BackgroundWorker _backgroundWorker;
         private bool formClosePending;
+        private int updateDelay = 100;
 
         //The different stages of the form 
         enum PanelTypes
@@ -33,7 +34,7 @@ namespace GC_Transcription_Form
         {
             InitializeComponent();
             _transcriptionService = transcriptionService;
-            _transcriptionConfig = new TranscriptionConfig();
+            _transcriptorConfig = new TranscriptorConfig();
             _backgroundWorker = new BackgroundWorker();
             _backgroundWorker.WorkerSupportsCancellation = true;
             _backgroundWorker.DoWork += BackgroundWorker_Update;
@@ -47,7 +48,7 @@ namespace GC_Transcription_Form
             while (!_backgroundWorker.CancellationPending)
             {
                 Invoke((Action) (() => { InputCheck(); PanelUpdate(); }));
-                Thread.Sleep(100); //update delay
+                Thread.Sleep(updateDelay); //update delay
             }
         }
 
@@ -92,10 +93,6 @@ namespace GC_Transcription_Form
                 InitialPanel.Visible = false;
                 SettingsPanel.Visible = false;
             }
-            else
-            {
-                Console.WriteLine("Uh Oh bad issue with panel display");
-            }
         }
 
         //(background worker method) Alters component states based on user input (i.e. next and back buttons)
@@ -113,6 +110,8 @@ namespace GC_Transcription_Form
                 {
                     LocalFolderBrowserButton.Enabled = false;
                     LocalFolderBrowserTextBox.Enabled = false;
+                    LocalFolderBrowserTextBox.Text = null;
+
                 }
                 if (GCBFileStorageRadioButton.Checked)
                 {
@@ -121,10 +120,11 @@ namespace GC_Transcription_Form
                 else
                 {
                     GCBFileStorageTextBox.Enabled = false;
+                    GCBFileStorageTextBox.Text = null;
                 }
 
                 //Panel Input Box Logic
-                if (GCCFilePathTextBox.Text.ToLower().Contains(".json") && (LocalFileStorageRadioButton.Checked == true || GCBFileStorageRadioButton.Checked == true))
+                if (GCCFilePathTextBox.Text.Length > 0 && (GCBFileStorageTextBox.Text.Length > 0 || LocalFolderBrowserTextBox.Text.Length > 0) && SaveTranscriptsFolderTextBox.Text.Length > 0)
                 {
                     NextButton.Enabled = true;
                 }
@@ -155,93 +155,106 @@ namespace GC_Transcription_Form
                 {
                     SpeechContextFileLocationButton.Enabled = false;
                     SpeechContextFileLocationTextBox.Enabled = false;
+                    SpeechContextFileLocationTextBox.Text = null;
                 }
-                NextButton.Enabled = true;
+                if (CheckBoxSpeechContext.Checked)
+                {
+                    if (SpeechContextFileLocationTextBox.Text.Length > 0)
+                    {
+                        NextButton.Enabled = true;
+                    }
+                    else
+                    {
+                        NextButton.Enabled = false;
+                    }
+                }
+                else
+                {
+                    NextButton.Enabled = true;
+                }
                 BackButton.Enabled = true;
             }
             else if (currentPanel == PanelTypes.Processing)
             {
                 NextButton.Enabled = false;
-                BackButton.Enabled = true;
-            }
-        }
-
-        //Functions the same as the standard form close button
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            ActiveForm.Close();
-        }
-
-        //Next enum panel
-        private void NextButton_Click(object sender, EventArgs e)
-        {
-            if (currentPanel == PanelTypes.Settings)
-            {
-                GetUserInfo();
-                UserInfoCheck();
-                ProcessDialogueCheck();
-            }
-            else
-            {
-                currentPanel += 1;
+                BackButton.Enabled = false;
             }
         }
 
         //Gather all of the required user input from the form to be processed
         private void GetUserInfo()
         {
-            _transcriptionConfig.GoogleCloudCredentialsPath = GCCFilePathTextBox.Text;
+            _transcriptorConfig.GoogleCloudCredentialsPath = GCCFilePathTextBox.Text;
             if (LocalFolderBrowserTextBox.Enabled)
             {
-                _transcriptionConfig.AudioFileDirectory = LocalFolderBrowserTextBox.Text;
+                _transcriptorConfig.AudioFileDirectory = LocalFolderBrowserTextBox.Text;
             }
             else
             {
-                _transcriptionConfig.GoogleCloudAudioBucketUrl = GCBFileStorageTextBox.Text;
+                _transcriptorConfig.GoogleCloudAudioBucketUrl = GCBFileStorageTextBox.Text;
             }
-            _transcriptionConfig.TranscriptionOutputDirectory = SaveTranscriptsFolderTextBox.Text;
-            _transcriptionConfig.EnhancedSpeaker = CheckBoxEnhanced.Checked;
-            _transcriptionConfig.Punctuation = CheckBoxPunctuation.Checked;
-            _transcriptionConfig.Profanity = CheckBoxProfanity.Checked;
-            _transcriptionConfig.WordTimeOffset = CheckBoxWordTime.Checked;
-            _transcriptionConfig.SeperateAudioChannel = CheckBoxAudioChannelRec.Checked;
-            _transcriptionConfig.AudioChannelCount = AudioChannelCount.Value;
-            _transcriptionConfig.ModelType = AudioModelTypeSelection.Text;
-            _transcriptionConfig.LanguageCode = LanguageCodeSelection.Text;
-            _transcriptionConfig.SpeakerDiarization = CheckBoxSpeakerDiarization.Checked;
-            if (_transcriptionConfig.SpeakerDiarization)
+            _transcriptorConfig.TranscriptionOutputDirectory = SaveTranscriptsFolderTextBox.Text;
+            _transcriptorConfig.EnhancedSpeaker = CheckBoxEnhanced.Checked;
+            _transcriptorConfig.Punctuation = CheckBoxPunctuation.Checked;
+            _transcriptorConfig.Profanity = CheckBoxProfanity.Checked;
+            _transcriptorConfig.WordTimeOffset = CheckBoxWordTime.Checked;
+            _transcriptorConfig.SeperateAudioChannel = CheckBoxAudioChannelRec.Checked;
+            _transcriptorConfig.AudioChannelCount = AudioChannelCount.Value;
+            _transcriptorConfig.ModelType = AudioModelTypeSelection.Text;
+            _transcriptorConfig.LanguageCode = LanguageCodeSelection.Text;
+            _transcriptorConfig.SpeakerDiarization = CheckBoxSpeakerDiarization.Checked;
+            if (_transcriptorConfig.SpeakerDiarization)
             {
-                _transcriptionConfig.MinSpeakers = MinimumSpeakerCount.Value;
-                _transcriptionConfig.MaxSpeakers = MaximumSpeakerCount.Value;
+                _transcriptorConfig.MinSpeakers = MinimumSpeakerCount.Value;
+                _transcriptorConfig.MaxSpeakers = MaximumSpeakerCount.Value;
             }
-            _transcriptionConfig.SpeechContext = CheckBoxSpeechContext.Checked;
-            if (_transcriptionConfig.SpeechContext)
+            _transcriptorConfig.SpeechContext = CheckBoxSpeechContext.Checked;
+            if (_transcriptorConfig.SpeechContext)
             {
-                _transcriptionConfig.SpeechContextFilePath = SpeechContextFileLocationTextBox.Text;
+                _transcriptorConfig.SpeechContextFilePath = SpeechContextFileLocationTextBox.Text;
             }
         }
 
         //Check that all of the user info provided is what is needed (e.g. file paths work)
-        private void UserInfoCheck()
+        /// <summary> returns true if the check is passed and false if the check is failed </summary>
+        private bool UserInfoCheck()
         {
-            DirectoryInfo audioFolderDirectory = new DirectoryInfo(_transcriptionConfig.AudioFileDirectory);
-            FileInfo[] audioFiles = audioFolderDirectory.GetFiles();
-            if (audioFiles.Length < 1)
+            try
             {
-                //error
+                File.Exists(_transcriptorConfig.GoogleCloudCredentialsPath);
+                Directory.Exists(_transcriptorConfig.TranscriptionOutputDirectory);
+                if (_transcriptorConfig.AudioFileDirectory != null)
+                {
+                    string[] audioFiles = Directory.GetFiles(_transcriptorConfig.AudioFileDirectory);
+                    if (audioFiles.Length < 1)
+                    {
+                        throw new IndexOutOfRangeException();
+                    }
+                }
+                return true;
             }
+            catch (Exception e)
+            {
+                ErrorAlert(e);
+                return false;
+            }
+        }
+
+        private void ErrorAlert(Exception e)
+        {
+            MessageBox.Show($"Description: {e.Message}", $"Error Type {e.GetType()}");
         }
 
         //Give the dialogue for the user to review the info provided
         private void ProcessDialogueCheck()
         {
-            DialogResult confirmResult = MessageBox.Show("Are you sure you are ready to begin transcribing with these settings?",
-                $"Google Cloud Credentials File Path: {_transcriptionConfig.GoogleCloudAudioBucketUrl}\n" +
-                $"Audio File Path: {_transcriptionConfig.AudioFileDirectory}",
+            DialogResult confirmResult = MessageBox.Show($"Google Cloud Credentials File Path: {_transcriptorConfig.GoogleCloudAudioBucketUrl}\n" +
+                $"Audio File Path: {_transcriptorConfig.AudioFileDirectory}", 
+                "Are you ready to begin transcribing with these settings?",
                 MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                // If 'Yes', do something here.
+                currentPanel += 1;
             }
             else
             {
@@ -249,6 +262,9 @@ namespace GC_Transcription_Form
             }
         }
 
+        /// <param name="Dialogue Box Type">
+        /// File = 0, Folder = 1
+        /// </param>
         private string GetStringDialogueBox(int dialogueType)
         {
             if (dialogueType == 0)//File
@@ -268,16 +284,34 @@ namespace GC_Transcription_Form
 
         #region Event Methods
 
+        //Functions the same as the standard form close button
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            ActiveForm.Close();
+        }
+
+        //Next enum panel
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            if (currentPanel == PanelTypes.Settings)
+            {
+                GetUserInfo();
+                if (UserInfoCheck())
+                {
+                    ProcessDialogueCheck();
+                }
+            }
+            else
+            {
+                currentPanel += 1;
+            }
+        }
+
         //Previous enum panel
         private void BackButton_Click(object sender, EventArgs e)
         {
             currentPanel -= 1;
         }
-
-        /// <param name="Dialogue Box Type">
-        /// File = 0, Folder = 1
-        /// </param>
-
 
         private void GCCFileBrowserButton_Click(object sender, EventArgs e)
         {
