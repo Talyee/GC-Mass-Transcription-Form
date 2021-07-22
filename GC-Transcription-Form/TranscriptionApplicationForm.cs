@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GC_Transcription_Form
 {
-    public partial class MainForm : Form
+    public partial class TranscriptionApplicationForm : Form
     {
         private PanelTypes currentPanel;
         private ITranscriptionService _transcriptionService;
@@ -30,7 +30,7 @@ namespace GC_Transcription_Form
         }
 
         //Initializes the design components and background worker
-        public MainForm(ITranscriptionService transcriptionService)
+        public TranscriptionApplicationForm(ITranscriptionService transcriptionService)
         {
             InitializeComponent();
             _transcriptionService = transcriptionService;
@@ -172,6 +172,22 @@ namespace GC_Transcription_Form
                 {
                     NextButton.Enabled = true;
                 }
+                if (AudioModelTypeSelection.Text.Length > 0)
+                {
+                    NextButton.Enabled = true;
+                }
+                else
+                {
+                    NextButton.Enabled = false;
+                }
+                if (LanguageCodeSelection.Text.Length > 0)
+                {
+                    NextButton.Enabled = true;
+                }
+                else
+                {
+                    NextButton.Enabled = false;
+                }
                 BackButton.Enabled = true;
             }
             else if (currentPanel == PanelTypes.Processing)
@@ -199,14 +215,14 @@ namespace GC_Transcription_Form
             _transcriptorConfig.Profanity = CheckBoxProfanity.Checked;
             _transcriptorConfig.WordTimeOffset = CheckBoxWordTime.Checked;
             _transcriptorConfig.SeperateAudioChannel = CheckBoxAudioChannelRec.Checked;
-            _transcriptorConfig.AudioChannelCount = AudioChannelCount.Value;
+            _transcriptorConfig.AudioChannelCount = Decimal.ToInt32(AudioChannelCount.Value);
             _transcriptorConfig.ModelType = AudioModelTypeSelection.Text;
             _transcriptorConfig.LanguageCode = LanguageCodeSelection.Text;
             _transcriptorConfig.SpeakerDiarization = CheckBoxSpeakerDiarization.Checked;
             if (_transcriptorConfig.SpeakerDiarization)
             {
-                _transcriptorConfig.MinSpeakers = MinimumSpeakerCount.Value;
-                _transcriptorConfig.MaxSpeakers = MaximumSpeakerCount.Value;
+                _transcriptorConfig.MinSpeakers = Decimal.ToInt32(MinimumSpeakerCount.Value);
+                _transcriptorConfig.MaxSpeakers = Decimal.ToInt32(MaximumSpeakerCount.Value);
             }
             _transcriptorConfig.SpeechContext = CheckBoxSpeechContext.Checked;
             if (_transcriptorConfig.SpeechContext)
@@ -248,10 +264,28 @@ namespace GC_Transcription_Form
         //Give the dialogue for the user to review the info provided
         private void ProcessDialogueCheck()
         {
-            DialogResult confirmResult = MessageBox.Show($"Google Cloud Credentials File Path: {_transcriptorConfig.GoogleCloudAudioBucketUrl}\n" +
-                $"Audio File Path: {_transcriptorConfig.AudioFileDirectory}", 
-                "Are you ready to begin transcribing with these settings?",
-                MessageBoxButtons.YesNo);
+            string dialogueBoxInfo = $"Google Cloud Credentials File Path:\n {_transcriptorConfig.GoogleCloudCredentialsPath}\n\n";
+            if(_transcriptorConfig.AudioFileDirectory != null)
+            {
+                dialogueBoxInfo += $"Audio File Path:\n {_transcriptorConfig.AudioFileDirectory}\n\n";
+            }
+            else if (_transcriptorConfig.GoogleCloudAudioBucketUrl != null)
+            {
+                dialogueBoxInfo += $"Google Cloud Bucket:\n {_transcriptorConfig.GoogleCloudAudioBucketUrl}\n\n";
+            }
+            dialogueBoxInfo += $"Transcription File Path:\n {_transcriptorConfig.TranscriptionOutputDirectory}\n\n" +
+                $"Enhanced Speaker:\n {_transcriptorConfig.EnhancedSpeaker}\n\n" +
+                $"Punctuation:\n {_transcriptorConfig.Punctuation}\n\n" +
+                $"Profanity:\n {_transcriptorConfig.Profanity}\n\n" +
+                $"Word Time Offset:\n {_transcriptorConfig.WordTimeOffset}\n\n" +
+                $"Seperate Audio Channel:\n {_transcriptorConfig.SeperateAudioChannel}\n\n" +
+                $"Audio Channel Count:\n {_transcriptorConfig.AudioChannelCount}\n\n" +
+                $"ModelType:\n {_transcriptorConfig.ModelType}\n\n" +
+                $"Language Code:\n {_transcriptorConfig.LanguageCode}\n\n" +
+                $"Speaker Diarization:\n {_transcriptorConfig.SpeakerDiarization}\n\n" +
+                $"Speech Context:\n {_transcriptorConfig.SpeechContext}\n\n";
+
+            DialogResult confirmResult = MessageBox.Show(dialogueBoxInfo, "Are you ready to begin transcribing with these settings?", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
                 currentPanel += 1;

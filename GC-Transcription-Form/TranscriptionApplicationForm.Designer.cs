@@ -1,7 +1,7 @@
 ﻿
 namespace GC_Transcription_Form
 {
-    partial class MainForm
+    partial class TranscriptionApplicationForm
     {
         /// <summary>
         ///  Required designer variable.

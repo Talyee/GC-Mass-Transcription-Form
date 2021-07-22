@@ -6,7 +6,8 @@ using Google.Cloud.Speech.V1;
 
 namespace GC_Transcription_Form
 {
-    public class TranscriptorConfig
+    //A struct to handle all the user inputs
+    public struct TranscriptorConfig
     {
         public string GoogleCloudCredentialsPath { get; set; }
         public string GoogleCloudAudioBucketUrl { get; set; }
@@ -17,17 +18,18 @@ namespace GC_Transcription_Form
         public bool Profanity { get; set; }
         public bool WordTimeOffset { get; set; }
         public bool SeperateAudioChannel { get; set; }
-        public decimal AudioChannelCount { get; set; }
+        public int AudioChannelCount { get; set; }
         public string ModelType { get; set; }
         public string LanguageCode { get; set; }
         public bool SpeakerDiarization { get; set; }
-        public decimal MinSpeakers { get; set; }
-        public decimal MaxSpeakers { get; set; }
+        public int MinSpeakers { get; set; }
+        public int MaxSpeakers { get; set; }
         public bool SpeechContext { get; set; }
         public string SpeechContextFilePath { get; set; }
         public string AudioFileType { get; set; }
     }
 
+    //DI interface for the TranscriptionApplicationForm class
     public interface ITranscriptionService
     {
         void BeginTranscription(TranscriptorConfig transcriptorConfig);
@@ -41,6 +43,8 @@ namespace GC_Transcription_Form
         {
             //set config
             _transcriptorConfig = transcriptorConfig;
+            //set up recognitionConfig for the API
+            RecognitionConfig recognitionConfig = GetRecognitionConfig();
             //get every audio file to be transcribed
             string[] filePaths = Directory.GetFiles(transcriptorConfig.AudioFileDirectory);
             foreach (string filePath in filePaths)
@@ -55,6 +59,31 @@ namespace GC_Transcription_Form
                 File.WriteAllLines(_transcriptorConfig.TranscriptionOutputDirectory + transcriptionFileName, transcriptLines);
                 Console.WriteLine($"Your completed transcription has been stored here:" + _transcriptorConfig.TranscriptionOutputDirectory + transcriptionFileName);
             }
+        }
+
+        //getting the necessary data from the config struct into Google's RecognitionAudio class
+        private RecognitionConfig GetRecognitionConfig()
+        {
+            SpeakerDiarizationConfig speakerDiarizationConfig = new SpeakerDiarizationConfig()
+            {
+                EnableSpeakerDiarization = _transcriptorConfig.SpeakerDiarization,
+                MinSpeakerCount = _transcriptorConfig.MinSpeakers,
+                MaxSpeakerCount = _transcriptorConfig.MaxSpeakers
+            };
+
+            RecognitionConfig recognitionConfig = new RecognitionConfig()
+            {
+                UseEnhanced = _transcriptorConfig.EnhancedSpeaker,
+                EnableAutomaticPunctuation = _transcriptorConfig.Punctuation,
+                ProfanityFilter = _transcriptorConfig.Profanity,
+                EnableWordTimeOffsets = _transcriptorConfig.WordTimeOffset,
+                EnableSeparateRecognitionPerChannel = _transcriptorConfig.SeperateAudioChannel,
+                AudioChannelCount = _transcriptorConfig.AudioChannelCount,
+                Model = _transcriptorConfig.ModelType,
+                LanguageCode = _transcriptorConfig.LanguageCode,
+                DiarizationConfig = speakerDiarizationConfig
+            };
+            return recognitionConfig;
         }
 
         //based on code from GoogleCloudPlatform/dotnet-docs-samples/speech/api/Recognize/Recognize.cs
@@ -79,7 +108,7 @@ namespace GC_Transcription_Form
                     MinSpeakerCount = 3,
                     MaxSpeakerCount = 3
                 }
-            }, RecognitionAudio.FromStorageUri(transcriptorConfig.GoogleCloudAudioBucketUrl + audioFileName)); ; ;
+            }, RecognitionAudio.FromStorageUri(transcriptorConfig.GoogleCloudAudioBucketUrl + audioFileName));
             while (longOperation.IsCompleted == false)
             {
                 var rpc = longOperation.Client.GetOperation(longOperation.RpcMessage.Name);
