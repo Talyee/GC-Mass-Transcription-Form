@@ -195,9 +195,9 @@ namespace GC_Transcription_Form
             this.InitialPanelLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.InitialPanelLabel2.Location = new System.Drawing.Point(52, 134);
             this.InitialPanelLabel2.Name = "InitialPanelLabel2";
-            this.InitialPanelLabel2.Size = new System.Drawing.Size(248, 21);
+            this.InitialPanelLabel2.Size = new System.Drawing.Size(254, 21);
             this.InitialPanelLabel2.TabIndex = 14;
-            this.InitialPanelLabel2.Text = "Where are you audio files located?";
+            this.InitialPanelLabel2.Text = "Where are your audio files located?";
             // 
             // SaveTranscriptsFolderButton
             // 
@@ -480,6 +480,148 @@ namespace GC_Transcription_Form
             // 
             this.LanguageCodeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LanguageCodeSelection.FormattingEnabled = true;
+            this.LanguageCodeSelection.Items.AddRange(new object[] {
+            "af-ZA",
+            "sq-AL",
+            "am-ET",
+            "ar-DZ",
+            "ar-BH",
+            "ar-EG",
+            "ar-IQ",
+            "ar-IL",
+            "ar-JO",
+            "ar-KW",
+            "ar-LB",
+            "ar-MA",
+            "ar-OM",
+            "ar-QA",
+            "ar-SA",
+            "ar-PS",
+            "ar-TN",
+            "ar-AE",
+            "ar-YE",
+            "hy-AM",
+            "az-AZ",
+            "eu-ES",
+            "bn-BD",
+            "bn-IN",
+            "bs-BA",
+            "bg-BG",
+            "my-MM",
+            "ca-ES",
+            "ue-Ha",
+            "nt-HK",
+            "mn-Ha",
+            "ns-CN",
+            "zh-TW",
+            "nt-TW",
+            "hr-HR",
+            "cs-CZ",
+            "da-DK",
+            "nl-BE",
+            "nl-NL",
+            "en-AU",
+            "en-CA",
+            "en-GH",
+            "en-HK",
+            "en-IN",
+            "en-IE",
+            "en-KE",
+            "en-NZ",
+            "en-NG",
+            "en-PK",
+            "en-PH",
+            "en-SG",
+            "en-ZA",
+            "en-TZ",
+            "en-GB",
+            "en-US",
+            "et-EE",
+            "il-PH",
+            "fi-FI",
+            "fr-BE",
+            "fr-CA",
+            "fr-FR",
+            "fr-CH",
+            "gl-ES",
+            "ka-GE",
+            "de-AT",
+            "de-DE",
+            "de-CH",
+            "el-GR",
+            "gu-IN",
+            "iw-IL",
+            "hi-IN",
+            "hu-HU",
+            "is-IS",
+            "id-ID",
+            "it-IT",
+            "it-CH",
+            "ja-JP",
+            "jv-ID",
+            "kn-IN",
+            "kk-KZ",
+            "km-KH",
+            "ko-KR",
+            "lo-LA",
+            "lv-LV",
+            "lt-LT",
+            "mk-MK",
+            "ms-MY",
+            "ml-IN",
+            "mr-IN",
+            "mn-MN",
+            "ne-NP",
+            "no-NO",
+            "fa-IR",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "pa-Gu",
+            "ru-IN",
+            "ro-RO",
+            "ru-RU",
+            "sr-RS",
+            "si-LK",
+            "sk-SK",
+            "sl-SI",
+            "es-AR",
+            "es-BO",
+            "es-CL",
+            "es-CO",
+            "es-CR",
+            "es-DO",
+            "es-EC",
+            "es-SV",
+            "es-GT",
+            "es-HN",
+            "es-MX",
+            "es-NI",
+            "es-PA",
+            "es-PY",
+            "es-PE",
+            "es-PR",
+            "es-ES",
+            "es-US",
+            "es-UY",
+            "es-VE",
+            "su-ID",
+            "sw-KE",
+            "sw-TZ",
+            "sv-SE",
+            "ta-IN",
+            "ta-MY",
+            "ta-SG",
+            "ta-LK",
+            "te-IN",
+            "th-TH",
+            "tr-TR",
+            "uk-UA",
+            "ur-IN",
+            "ur-PK",
+            "uz-UZ",
+            "vi-VN",
+            "zu-Z"});
             this.LanguageCodeSelection.Location = new System.Drawing.Point(34, 299);
             this.LanguageCodeSelection.Name = "LanguageCodeSelection";
             this.LanguageCodeSelection.Size = new System.Drawing.Size(186, 23);
@@ -558,7 +700,7 @@ namespace GC_Transcription_Form
             this.CheckBoxAudioChannelRec.Text = "Seperate Audio Channel Recognition";
             this.CheckBoxAudioChannelRec.UseVisualStyleBackColor = true;
             // 
-            // MainForm
+            // TranscriptionApplicationForm
             // 
             this.AcceptButton = this.NextButton;
             this.AccessibleDescription = "Form to transcribe using google cloud";
@@ -572,7 +714,7 @@ namespace GC_Transcription_Form
             this.Controls.Add(this.ProcessingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "MainForm";
+            this.Name = "TranscriptionApplicationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GC Mass Transcriptor";
             this.PanelInputBox.ResumeLayout(false);
