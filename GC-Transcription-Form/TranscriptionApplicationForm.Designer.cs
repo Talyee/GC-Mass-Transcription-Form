@@ -36,21 +36,6 @@ namespace GC_Transcription_Form
             this.OutputTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelInputBox = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.InitialPanel = new System.Windows.Forms.Panel();
-            this.InitialPanelLabel2 = new System.Windows.Forms.Label();
-            this.SaveTranscriptsFolderButton = new System.Windows.Forms.Button();
-            this.SaveTranscriptsFolderTextBox = new System.Windows.Forms.TextBox();
-            this.LocalFolderBrowserButton = new System.Windows.Forms.Button();
-            this.LocalFolderBrowserTextBox = new System.Windows.Forms.TextBox();
-            this.GCBFileStorageTextBox = new System.Windows.Forms.TextBox();
-            this.LocalFileStorageRadioButton = new System.Windows.Forms.RadioButton();
-            this.InitialPanelLabel3 = new System.Windows.Forms.Label();
-            this.GCBFileStorageRadioButton = new System.Windows.Forms.RadioButton();
-            this.GCCFilePathTextBox = new System.Windows.Forms.TextBox();
-            this.GCCFileBrowserButton = new System.Windows.Forms.Button();
-            this.InitialPanelLabel1 = new System.Windows.Forms.Label();
-            this.ProcessingPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.SettingsLabel2 = new System.Windows.Forms.Label();
             this.AudioChannelCount = new System.Windows.Forms.NumericUpDown();
@@ -75,15 +60,30 @@ namespace GC_Transcription_Form
             this.CheckBoxWordTime = new System.Windows.Forms.CheckBox();
             this.CheckBoxProfanity = new System.Windows.Forms.CheckBox();
             this.CheckBoxAudioChannelRec = new System.Windows.Forms.CheckBox();
+            this.InitialPanel = new System.Windows.Forms.Panel();
+            this.InitialPanelLabel2 = new System.Windows.Forms.Label();
+            this.SaveTranscriptsFolderButton = new System.Windows.Forms.Button();
+            this.SaveTranscriptsFolderTextBox = new System.Windows.Forms.TextBox();
+            this.LocalFolderBrowserButton = new System.Windows.Forms.Button();
+            this.LocalFolderBrowserTextBox = new System.Windows.Forms.TextBox();
+            this.GCBFileStorageTextBox = new System.Windows.Forms.TextBox();
+            this.LocalFileStorageRadioButton = new System.Windows.Forms.RadioButton();
+            this.InitialPanelLabel3 = new System.Windows.Forms.Label();
+            this.GCBFileStorageRadioButton = new System.Windows.Forms.RadioButton();
+            this.GCCFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.GCCFileBrowserButton = new System.Windows.Forms.Button();
+            this.InitialPanelLabel1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ProcessingPanel = new System.Windows.Forms.Panel();
             this.PanelInputBox.SuspendLayout();
-            this.InitialPanel.SuspendLayout();
-            this.ProcessingPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AudioChannelCount)).BeginInit();
             this.SpeechContextGroupBox.SuspendLayout();
             this.DiarizationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaximumSpeakerCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimumSpeakerCount)).BeginInit();
+            this.InitialPanel.SuspendLayout();
+            this.ProcessingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -129,7 +129,6 @@ namespace GC_Transcription_Form
             this.OutputTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.OutputTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.OutputTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OutputTextBox.Enabled = false;
             this.OutputTextBox.Location = new System.Drawing.Point(17, 21);
             this.OutputTextBox.Name = "OutputTextBox";
             this.OutputTextBox.ReadOnly = true;
@@ -161,154 +160,6 @@ namespace GC_Transcription_Form
             this.PanelInputBox.TabStop = false;
             this.PanelInputBox.Text = "GC Mass Transcriptor";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Thank you for using this software!";
-            // 
-            // InitialPanel
-            // 
-            this.InitialPanel.Controls.Add(this.InitialPanelLabel2);
-            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderButton);
-            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderTextBox);
-            this.InitialPanel.Controls.Add(this.LocalFolderBrowserButton);
-            this.InitialPanel.Controls.Add(this.LocalFolderBrowserTextBox);
-            this.InitialPanel.Controls.Add(this.GCBFileStorageTextBox);
-            this.InitialPanel.Controls.Add(this.LocalFileStorageRadioButton);
-            this.InitialPanel.Controls.Add(this.InitialPanelLabel3);
-            this.InitialPanel.Controls.Add(this.GCBFileStorageRadioButton);
-            this.InitialPanel.Controls.Add(this.GCCFilePathTextBox);
-            this.InitialPanel.Controls.Add(this.GCCFileBrowserButton);
-            this.InitialPanel.Controls.Add(this.InitialPanelLabel1);
-            this.InitialPanel.Location = new System.Drawing.Point(0, 0);
-            this.InitialPanel.Name = "InitialPanel";
-            this.InitialPanel.Size = new System.Drawing.Size(663, 344);
-            this.InitialPanel.TabIndex = 5;
-            // 
-            // InitialPanelLabel2
-            // 
-            this.InitialPanelLabel2.AutoSize = true;
-            this.InitialPanelLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InitialPanelLabel2.Location = new System.Drawing.Point(52, 134);
-            this.InitialPanelLabel2.Name = "InitialPanelLabel2";
-            this.InitialPanelLabel2.Size = new System.Drawing.Size(254, 21);
-            this.InitialPanelLabel2.TabIndex = 14;
-            this.InitialPanelLabel2.Text = "Where are your audio files located?";
-            // 
-            // SaveTranscriptsFolderButton
-            // 
-            this.SaveTranscriptsFolderButton.Location = new System.Drawing.Point(542, 284);
-            this.SaveTranscriptsFolderButton.Name = "SaveTranscriptsFolderButton";
-            this.SaveTranscriptsFolderButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveTranscriptsFolderButton.TabIndex = 13;
-            this.SaveTranscriptsFolderButton.Text = "Browse...";
-            this.SaveTranscriptsFolderButton.UseVisualStyleBackColor = true;
-            this.SaveTranscriptsFolderButton.Click += new System.EventHandler(this.SaveTranscriptsFolderButton_Click);
-            // 
-            // SaveTranscriptsFolderTextBox
-            // 
-            this.SaveTranscriptsFolderTextBox.Location = new System.Drawing.Point(52, 284);
-            this.SaveTranscriptsFolderTextBox.Name = "SaveTranscriptsFolderTextBox";
-            this.SaveTranscriptsFolderTextBox.Size = new System.Drawing.Size(484, 23);
-            this.SaveTranscriptsFolderTextBox.TabIndex = 12;
-            // 
-            // LocalFolderBrowserButton
-            // 
-            this.LocalFolderBrowserButton.Location = new System.Drawing.Point(542, 162);
-            this.LocalFolderBrowserButton.Name = "LocalFolderBrowserButton";
-            this.LocalFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
-            this.LocalFolderBrowserButton.TabIndex = 10;
-            this.LocalFolderBrowserButton.Text = "Browse...";
-            this.LocalFolderBrowserButton.UseVisualStyleBackColor = true;
-            this.LocalFolderBrowserButton.Click += new System.EventHandler(this.LocalFolderBrowserButton_Click);
-            // 
-            // LocalFolderBrowserTextBox
-            // 
-            this.LocalFolderBrowserTextBox.Location = new System.Drawing.Point(195, 162);
-            this.LocalFolderBrowserTextBox.Name = "LocalFolderBrowserTextBox";
-            this.LocalFolderBrowserTextBox.Size = new System.Drawing.Size(341, 23);
-            this.LocalFolderBrowserTextBox.TabIndex = 8;
-            // 
-            // GCBFileStorageTextBox
-            // 
-            this.GCBFileStorageTextBox.Location = new System.Drawing.Point(195, 197);
-            this.GCBFileStorageTextBox.Name = "GCBFileStorageTextBox";
-            this.GCBFileStorageTextBox.Size = new System.Drawing.Size(422, 23);
-            this.GCBFileStorageTextBox.TabIndex = 7;
-            // 
-            // LocalFileStorageRadioButton
-            // 
-            this.LocalFileStorageRadioButton.AutoSize = true;
-            this.LocalFileStorageRadioButton.Location = new System.Drawing.Point(52, 164);
-            this.LocalFileStorageRadioButton.Name = "LocalFileStorageRadioButton";
-            this.LocalFileStorageRadioButton.Size = new System.Drawing.Size(122, 19);
-            this.LocalFileStorageRadioButton.TabIndex = 6;
-            this.LocalFileStorageRadioButton.TabStop = true;
-            this.LocalFileStorageRadioButton.Text = "My Local Machine";
-            this.LocalFileStorageRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // InitialPanelLabel3
-            // 
-            this.InitialPanelLabel3.AutoSize = true;
-            this.InitialPanelLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InitialPanelLabel3.Location = new System.Drawing.Point(52, 254);
-            this.InitialPanelLabel3.Name = "InitialPanelLabel3";
-            this.InitialPanelLabel3.Size = new System.Drawing.Size(455, 21);
-            this.InitialPanelLabel3.TabIndex = 5;
-            this.InitialPanelLabel3.Text = "Where would you like your transcripted documents to be saved?";
-            // 
-            // GCBFileStorageRadioButton
-            // 
-            this.GCBFileStorageRadioButton.AutoSize = true;
-            this.GCBFileStorageRadioButton.Location = new System.Drawing.Point(52, 198);
-            this.GCBFileStorageRadioButton.Name = "GCBFileStorageRadioButton";
-            this.GCBFileStorageRadioButton.Size = new System.Drawing.Size(137, 19);
-            this.GCBFileStorageRadioButton.TabIndex = 4;
-            this.GCBFileStorageRadioButton.TabStop = true;
-            this.GCBFileStorageRadioButton.Text = "Google Cloud Bucket";
-            this.GCBFileStorageRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // GCCFilePathTextBox
-            // 
-            this.GCCFilePathTextBox.Location = new System.Drawing.Point(52, 72);
-            this.GCCFilePathTextBox.Name = "GCCFilePathTextBox";
-            this.GCCFilePathTextBox.Size = new System.Drawing.Size(484, 23);
-            this.GCCFilePathTextBox.TabIndex = 3;
-            // 
-            // GCCFileBrowserButton
-            // 
-            this.GCCFileBrowserButton.Location = new System.Drawing.Point(542, 72);
-            this.GCCFileBrowserButton.Name = "GCCFileBrowserButton";
-            this.GCCFileBrowserButton.Size = new System.Drawing.Size(75, 23);
-            this.GCCFileBrowserButton.TabIndex = 2;
-            this.GCCFileBrowserButton.Text = "Browse...";
-            this.GCCFileBrowserButton.UseVisualStyleBackColor = true;
-            this.GCCFileBrowserButton.Click += new System.EventHandler(this.GCCFileBrowserButton_Click);
-            // 
-            // InitialPanelLabel1
-            // 
-            this.InitialPanelLabel1.AutoSize = true;
-            this.InitialPanelLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InitialPanelLabel1.Location = new System.Drawing.Point(52, 42);
-            this.InitialPanelLabel1.Name = "InitialPanelLabel1";
-            this.InitialPanelLabel1.Size = new System.Drawing.Size(464, 21);
-            this.InitialPanelLabel1.TabIndex = 1;
-            this.InitialPanelLabel1.Text = "Please select the path to your Google Cloud Credentials JSON file:";
-            // 
-            // ProcessingPanel
-            // 
-            this.ProcessingPanel.Controls.Add(this.SettingsPanel);
-            this.ProcessingPanel.Controls.Add(this.OutputTextBox);
-            this.ProcessingPanel.Controls.Add(this.ProgressBar);
-            this.ProcessingPanel.Location = new System.Drawing.Point(-5, -9);
-            this.ProcessingPanel.Name = "ProcessingPanel";
-            this.ProcessingPanel.Size = new System.Drawing.Size(663, 351);
-            this.ProcessingPanel.TabIndex = 8;
-            // 
             // SettingsPanel
             // 
             this.SettingsPanel.Controls.Add(this.InitialPanel);
@@ -326,7 +177,7 @@ namespace GC_Transcription_Form
             this.SettingsPanel.Controls.Add(this.CheckBoxWordTime);
             this.SettingsPanel.Controls.Add(this.CheckBoxProfanity);
             this.SettingsPanel.Controls.Add(this.CheckBoxAudioChannelRec);
-            this.SettingsPanel.Location = new System.Drawing.Point(1, 7);
+            this.SettingsPanel.Location = new System.Drawing.Point(0, 7);
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Size = new System.Drawing.Size(663, 352);
             this.SettingsPanel.TabIndex = 7;
@@ -700,6 +551,154 @@ namespace GC_Transcription_Form
             this.CheckBoxAudioChannelRec.Text = "Seperate Audio Channel Recognition";
             this.CheckBoxAudioChannelRec.UseVisualStyleBackColor = true;
             // 
+            // InitialPanel
+            // 
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel2);
+            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderButton);
+            this.InitialPanel.Controls.Add(this.SaveTranscriptsFolderTextBox);
+            this.InitialPanel.Controls.Add(this.LocalFolderBrowserButton);
+            this.InitialPanel.Controls.Add(this.LocalFolderBrowserTextBox);
+            this.InitialPanel.Controls.Add(this.GCBFileStorageTextBox);
+            this.InitialPanel.Controls.Add(this.LocalFileStorageRadioButton);
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel3);
+            this.InitialPanel.Controls.Add(this.GCBFileStorageRadioButton);
+            this.InitialPanel.Controls.Add(this.GCCFilePathTextBox);
+            this.InitialPanel.Controls.Add(this.GCCFileBrowserButton);
+            this.InitialPanel.Controls.Add(this.InitialPanelLabel1);
+            this.InitialPanel.Location = new System.Drawing.Point(0, 0);
+            this.InitialPanel.Name = "InitialPanel";
+            this.InitialPanel.Size = new System.Drawing.Size(663, 344);
+            this.InitialPanel.TabIndex = 5;
+            // 
+            // InitialPanelLabel2
+            // 
+            this.InitialPanelLabel2.AutoSize = true;
+            this.InitialPanelLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel2.Location = new System.Drawing.Point(52, 134);
+            this.InitialPanelLabel2.Name = "InitialPanelLabel2";
+            this.InitialPanelLabel2.Size = new System.Drawing.Size(254, 21);
+            this.InitialPanelLabel2.TabIndex = 14;
+            this.InitialPanelLabel2.Text = "Where are your audio files located?";
+            // 
+            // SaveTranscriptsFolderButton
+            // 
+            this.SaveTranscriptsFolderButton.Location = new System.Drawing.Point(542, 284);
+            this.SaveTranscriptsFolderButton.Name = "SaveTranscriptsFolderButton";
+            this.SaveTranscriptsFolderButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveTranscriptsFolderButton.TabIndex = 13;
+            this.SaveTranscriptsFolderButton.Text = "Browse...";
+            this.SaveTranscriptsFolderButton.UseVisualStyleBackColor = true;
+            this.SaveTranscriptsFolderButton.Click += new System.EventHandler(this.SaveTranscriptsFolderButton_Click);
+            // 
+            // SaveTranscriptsFolderTextBox
+            // 
+            this.SaveTranscriptsFolderTextBox.Location = new System.Drawing.Point(52, 284);
+            this.SaveTranscriptsFolderTextBox.Name = "SaveTranscriptsFolderTextBox";
+            this.SaveTranscriptsFolderTextBox.Size = new System.Drawing.Size(484, 23);
+            this.SaveTranscriptsFolderTextBox.TabIndex = 12;
+            // 
+            // LocalFolderBrowserButton
+            // 
+            this.LocalFolderBrowserButton.Location = new System.Drawing.Point(542, 162);
+            this.LocalFolderBrowserButton.Name = "LocalFolderBrowserButton";
+            this.LocalFolderBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.LocalFolderBrowserButton.TabIndex = 10;
+            this.LocalFolderBrowserButton.Text = "Browse...";
+            this.LocalFolderBrowserButton.UseVisualStyleBackColor = true;
+            this.LocalFolderBrowserButton.Click += new System.EventHandler(this.LocalFolderBrowserButton_Click);
+            // 
+            // LocalFolderBrowserTextBox
+            // 
+            this.LocalFolderBrowserTextBox.Location = new System.Drawing.Point(195, 162);
+            this.LocalFolderBrowserTextBox.Name = "LocalFolderBrowserTextBox";
+            this.LocalFolderBrowserTextBox.Size = new System.Drawing.Size(341, 23);
+            this.LocalFolderBrowserTextBox.TabIndex = 8;
+            // 
+            // GCBFileStorageTextBox
+            // 
+            this.GCBFileStorageTextBox.Location = new System.Drawing.Point(195, 197);
+            this.GCBFileStorageTextBox.Name = "GCBFileStorageTextBox";
+            this.GCBFileStorageTextBox.Size = new System.Drawing.Size(422, 23);
+            this.GCBFileStorageTextBox.TabIndex = 7;
+            // 
+            // LocalFileStorageRadioButton
+            // 
+            this.LocalFileStorageRadioButton.AutoSize = true;
+            this.LocalFileStorageRadioButton.Location = new System.Drawing.Point(52, 164);
+            this.LocalFileStorageRadioButton.Name = "LocalFileStorageRadioButton";
+            this.LocalFileStorageRadioButton.Size = new System.Drawing.Size(122, 19);
+            this.LocalFileStorageRadioButton.TabIndex = 6;
+            this.LocalFileStorageRadioButton.TabStop = true;
+            this.LocalFileStorageRadioButton.Text = "My Local Machine";
+            this.LocalFileStorageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // InitialPanelLabel3
+            // 
+            this.InitialPanelLabel3.AutoSize = true;
+            this.InitialPanelLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel3.Location = new System.Drawing.Point(52, 254);
+            this.InitialPanelLabel3.Name = "InitialPanelLabel3";
+            this.InitialPanelLabel3.Size = new System.Drawing.Size(455, 21);
+            this.InitialPanelLabel3.TabIndex = 5;
+            this.InitialPanelLabel3.Text = "Where would you like your transcripted documents to be saved?";
+            // 
+            // GCBFileStorageRadioButton
+            // 
+            this.GCBFileStorageRadioButton.AutoSize = true;
+            this.GCBFileStorageRadioButton.Location = new System.Drawing.Point(52, 198);
+            this.GCBFileStorageRadioButton.Name = "GCBFileStorageRadioButton";
+            this.GCBFileStorageRadioButton.Size = new System.Drawing.Size(137, 19);
+            this.GCBFileStorageRadioButton.TabIndex = 4;
+            this.GCBFileStorageRadioButton.TabStop = true;
+            this.GCBFileStorageRadioButton.Text = "Google Cloud Bucket";
+            this.GCBFileStorageRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // GCCFilePathTextBox
+            // 
+            this.GCCFilePathTextBox.Location = new System.Drawing.Point(52, 72);
+            this.GCCFilePathTextBox.Name = "GCCFilePathTextBox";
+            this.GCCFilePathTextBox.Size = new System.Drawing.Size(484, 23);
+            this.GCCFilePathTextBox.TabIndex = 3;
+            // 
+            // GCCFileBrowserButton
+            // 
+            this.GCCFileBrowserButton.Location = new System.Drawing.Point(542, 72);
+            this.GCCFileBrowserButton.Name = "GCCFileBrowserButton";
+            this.GCCFileBrowserButton.Size = new System.Drawing.Size(75, 23);
+            this.GCCFileBrowserButton.TabIndex = 2;
+            this.GCCFileBrowserButton.Text = "Browse...";
+            this.GCCFileBrowserButton.UseVisualStyleBackColor = true;
+            this.GCCFileBrowserButton.Click += new System.EventHandler(this.GCCFileBrowserButton_Click);
+            // 
+            // InitialPanelLabel1
+            // 
+            this.InitialPanelLabel1.AutoSize = true;
+            this.InitialPanelLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InitialPanelLabel1.Location = new System.Drawing.Point(52, 42);
+            this.InitialPanelLabel1.Name = "InitialPanelLabel1";
+            this.InitialPanelLabel1.Size = new System.Drawing.Size(464, 21);
+            this.InitialPanelLabel1.TabIndex = 1;
+            this.InitialPanelLabel1.Text = "Please select the path to your Google Cloud Credentials JSON file:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(185, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Thank you for using this software!";
+            // 
+            // ProcessingPanel
+            // 
+            this.ProcessingPanel.Controls.Add(this.SettingsPanel);
+            this.ProcessingPanel.Controls.Add(this.OutputTextBox);
+            this.ProcessingPanel.Controls.Add(this.ProgressBar);
+            this.ProcessingPanel.Location = new System.Drawing.Point(-5, -9);
+            this.ProcessingPanel.Name = "ProcessingPanel";
+            this.ProcessingPanel.Size = new System.Drawing.Size(663, 351);
+            this.ProcessingPanel.TabIndex = 8;
+            // 
             // TranscriptionApplicationForm
             // 
             this.AcceptButton = this.NextButton;
@@ -719,9 +718,6 @@ namespace GC_Transcription_Form
             this.Text = "GC Mass Transcriptor";
             this.PanelInputBox.ResumeLayout(false);
             this.PanelInputBox.PerformLayout();
-            this.InitialPanel.ResumeLayout(false);
-            this.InitialPanel.PerformLayout();
-            this.ProcessingPanel.ResumeLayout(false);
             this.SettingsPanel.ResumeLayout(false);
             this.SettingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AudioChannelCount)).EndInit();
@@ -731,6 +727,9 @@ namespace GC_Transcription_Form
             this.DiarizationGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaximumSpeakerCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimumSpeakerCount)).EndInit();
+            this.InitialPanel.ResumeLayout(false);
+            this.InitialPanel.PerformLayout();
+            this.ProcessingPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

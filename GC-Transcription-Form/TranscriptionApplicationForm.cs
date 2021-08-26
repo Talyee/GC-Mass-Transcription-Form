@@ -18,8 +18,11 @@ namespace GC_Transcription_Form
         private ITranscriptionService _transcriptionService;
         private TranscriptorConfig _transcriptorConfig;
         private BackgroundWorker _backgroundWorker;
+        private bool transcriptionStart;
         private bool formClosePending;
-        private int updateDelay = 100;
+        private int formUpdateDelay = 100;
+        private string transcriptionUpdateString;
+        private int transcriptionUpdateInt;
 
         //The different stages of the form 
         enum PanelTypes
@@ -40,6 +43,7 @@ namespace GC_Transcription_Form
             _backgroundWorker.DoWork += BackgroundWorker_Update;
             _backgroundWorker.RunWorkerCompleted += BackgroundWorker_OnCompletion;
             _backgroundWorker.RunWorkerAsync();
+            transcriptionStart = false;
         }
 
         //Method run on background worker thread
@@ -48,7 +52,7 @@ namespace GC_Transcription_Form
             while (!_backgroundWorker.CancellationPending)
             {
                 Invoke((Action) (() => { InputCheck(); PanelUpdate(); }));
-                Thread.Sleep(updateDelay); //update delay
+                Thread.Sleep(formUpdateDelay); //update delay
             }
         }
 
@@ -194,7 +198,31 @@ namespace GC_Transcription_Form
             {
                 NextButton.Enabled = false;
                 BackButton.Enabled = false;
+                if (!transcriptionStart)
+                {
+                    transcriptionStart = true;
+                    transcriptionUpdateString = "";
+                    transcriptionUpdateInt = 0;
+                    _transcriptorConfig.APIUpdateDelay = 1000; //moved the magic number up a layer aha (SORT THIS OUT)
+                    _transcriptionService.BeginTranscription(_transcriptorConfig);
+                }
+                else
+                {
+                    string transcriptionNewUpdateString = _transcriptionService.GetTranscriptionProgressString();
+                    transcriptionUpdateInt = _transcriptionService.GetTranscriptionProgressInt();
+                    if (transcriptionUpdateString != transcriptionNewUpdateString)
+                    {
+                        OutputTextBox.Text += transcriptionNewUpdateString;
+                        transcriptionUpdateString = transcriptionNewUpdateString;
+                        UpdateProgressBar();
+                    }
+                }
             }
+        }
+
+        private void UpdateProgressBar()
+        {
+            ProgressBar.Value = transcriptionUpdateInt;
         }
 
         //Gather all of the required user input from the form to be processed
@@ -289,10 +317,6 @@ namespace GC_Transcription_Form
             if (confirmResult == DialogResult.Yes)
             {
                 currentPanel += 1;
-            }
-            else
-            {
-                // If 'No', do something here.
             }
         }
 
